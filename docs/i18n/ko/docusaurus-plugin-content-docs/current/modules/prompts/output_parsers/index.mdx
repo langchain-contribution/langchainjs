@@ -5,28 +5,25 @@ sidebar_position: 2
 
 import CodeBlock from "@theme/CodeBlock";
 
-# Output Parsers
+# 결과값 파서 (Output Parsers)
 
 :::info
 [Conceptual Guide](https://docs.langchain.com/docs/components/output-parser)
 :::
 
-Language models output text. But many times you may want to get more structured information than just text back. This is where output parsers come in.
+언어 모델은 텍스트를 출력합니다. 그러나 많은 경우 텍스트 이상의 구조화된 정보를 돌려받고 싶을 수 있습니다. 이것이 출력 파서가 필요한 이유입니다.
 
-Output parsers are classes that help structure language model responses. There are two main methods an output parser must implement:
+결과값 파서 (Output Parsers)는 언어 모델 응답을 구조화하는 데 도움이 되는 클래스입니다. Output parser가 구현해야 하는 두 가지 주요 메서드가 있습니다.
 
-- `getFormatInstructions(): str` A method which returns a string containing instructions for how the output of a language model should be formatted.
-- `parse(raw: string): any` A method which takes in a string (assumed to be the response from a language model) and parses it into some structure.
+- `getFormatInstructions(): str`: 언어 모델의 출력이 어떻게 포맷되어야 하는지에 대한 지시사항을 포함하는 문자열을 반환하는 메서드입니다.
+- `parse(raw: string): any`: 문자열(언어 모델의 응답)을 입력받고 구조화된 형태로 파싱하는 메서드입니다.
+- `parseWithPrompt(text: string, prompt: BasePromptValue): any`: 문자열(언어 모델의 응답)과 포맷된 프롬프트(해당 응답을 생성한 프롬프트)를 입력받고 구조화된 형태로 파싱하는 optional한 메서드입니다. 프롬프트는 OutputParser가 출력을 재시도하거나 수정하는 경우에 필요한 정보를 제공하기 위해 제공됩니다.
 
-And then one optional one:
-
-- `parseWithPrompt(text: string, prompt: BasePromptValue): any`: A method which takes in a string (assumed to be the response from a language model) and a formatted prompt (assumed to the prompt that generated such a response) and parses it into some structure. The prompt is largely provided in the event the OutputParser wants to retry or fix the output in some way, and needs information from the prompt to do so.
-
-Below we go over some examples of output parsers.
+다음에서는 몇 가지 출력 파서의 예를 살펴봅니다.
 
 ## Structured Output Parser
 
-This output parser can be used when you want to return multiple fields.
+이 출력 파서는 여러 필드를 반환하려는 경우 사용할 수 있습니다.
 
 import Structured from "@examples/prompts/structured_parser.ts";
 
@@ -34,7 +31,7 @@ import Structured from "@examples/prompts/structured_parser.ts";
 
 ## Structured Output Parser with Zod Schema
 
-This output parser can be also be used when you want to define the output schema using Zod, a TypeScript validation library. The Zod schema passed in needs be parseable from a JSON string, so eg. `z.date()` is not allowed, but `z.coerce.date()` is.
+이 출력 파서는 Zod라는, TypeScript 유효성 검사 라이브러리를 사용하여 출력 스키마를 정의하려는 경우에도 사용할 수 있습니다. 전달된 Zod 스키마는 JSON 문자열에서 파싱할 수 있어야 하므로 예를 들어 `z.date()`는 허용되지 않지만 `z.coerce.date()`는 허용됩니다.
 
 import StructuredZod from "@examples/prompts/structured_parser_zod.ts";
 
@@ -42,7 +39,7 @@ import StructuredZod from "@examples/prompts/structured_parser_zod.ts";
 
 ## Output Fixing Parser
 
-This output parser wraps another output parser, and in the event that the first one fails it calls out to another LLM to fix any errors.
+해당 출력 파서는 다른 출력 파서를 감싸고 있으며, 첫 번째 출력 파서가 실패하는 경우 다른 LLM을 호출하여 오류를 수정합니다.
 
 import Fix from "@examples/prompts/fix_parser.ts";
 
@@ -50,7 +47,7 @@ import Fix from "@examples/prompts/fix_parser.ts";
 
 ## Comma-separated List Parser
 
-This output parser can be used when you want to return a list of items.
+이 출력 파서는 항목 목록을 반환하려는 경우 사용할 수 있습니다.
 
 import Comma from "@examples/prompts/comma_list_parser.ts";
 
@@ -58,7 +55,7 @@ import Comma from "@examples/prompts/comma_list_parser.ts";
 
 ## Combining Output Parsers
 
-Output parsers can be combined using `CombiningOutputParser`. This output parser takes in a list of output parsers, and will ask for (and parse) a combined output that contains all the fields of all the parsers.
+Output 파서는 `CombiningOutputParser`를 사용하여 결합할 수 있습니다. 이 출력 파서는 출력 파서 목록을 입력받고, 모든 파서의 모든 필드를 포함하는 결합된 출력을 요청하고 파싱합니다.
 
 import Combining from "@examples/prompts/combining_parser.ts";
 
