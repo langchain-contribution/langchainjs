@@ -3,23 +3,23 @@ sidebar_label: "Vector Stores"
 sidebar_position: 3
 ---
 
-# Getting Started: Vector Stores
+# 시작하기: Vector Stores
 
 :::info
 [Conceptual Guide](https://docs.langchain.com/docs/components/indexing/vectorstore)
 :::
 
-A vector store is a particular type of database optimized for storing documents and their [embeddings](../../models/embeddings/), and then fetching of the most relevant documents for a particular query, ie. those whose embeddings are most similar to the embedding of the query.
+벡터 스토어는 documents와 [embeddings](../../models/embeddings/)을 저장한 다음 특정 쿼리에 가장 관련성이 높은 documents, 즉 쿼리의 임베딩과 가장 유사한 embeddings을 가져오는 데 최적화된 특정 유형의 데이터베이스입니다.
 
 ```typescript
 interface VectorStore {
   /**
-   * Add more documents to an existing VectorStore
+   * 기존 VectorStore에 Documents 더 추가합니다.
    */
   addDocuments(documents: Document[]): Promise<void>;
 
   /**
-   * Search for the most similar documents to a query
+   * 쿼리와 가장 유사한 Documents를 검색합니다.
    */
   similaritySearch(
     query: string,
@@ -28,8 +28,7 @@ interface VectorStore {
   ): Promise<Document[]>;
 
   /**
-   * Search for the most similar documents to a query,
-   * and return their similarity score
+   * 쿼리와 가장 유사한 Documents를 검색하고, 유사도 점수를 반환합니다.
    */
   similaritySearchWithScore(
     query: string,
@@ -38,19 +37,17 @@ interface VectorStore {
   ): Promise<[object, number][]>;
 
   /**
-   * Turn a VectorStore into a Retriever
+   * VectorStore 를 Retriever 로 변환합니다.
    */
   asRetriever(k?: number): BaseRetriever;
 
   /**
-   * Advanced: Add more documents to an existing VectorStore,
-   * when you already have their embeddings
+   * 고급: 이미 Embeddings 된 데이터가 있는 경우, 기존의 VectorStore 에 Documents 를 추가합니다.
    */
   addVectors(vectors: number[][], documents: Document[]): Promise<void>;
 
   /**
-   * Advanced: Search for the most similar documents to a query,
-   * when you already have the embedding of the query
+   * 고급: 이미 Query Embedding 이 있는 경우, Query 와 가장 유사한 문서를 검색합니다.
    */
   similaritySearchVectorWithScore(
     query: number[],
@@ -60,7 +57,8 @@ interface VectorStore {
 }
 ```
 
-You can create a vector store from a list of [Documents](../../schema/document), or from a list of texts and their corresponding metadata. You can also create a vector store from an existing index, the signature of this method depends on the vector store you're using, check the documentation of the vector store you're interested in.
+[Documents](../../schema/document) 목록 또는 텍스트 목록과 메타 데이터에서 VectorStore 를 만들 수 있습니다.
+기존 인덱스에서 VectorStore 를 만들 수도 있으며 이 방법의 경우 VectorStore 에 따라 메소드 시그니처가 다르므로 관심 있는 VectorStore의 설명서를 확인하세요.
 
 ```typescript
 abstract class BaseVectorStore implements VectorStore {
@@ -79,18 +77,18 @@ abstract class BaseVectorStore implements VectorStore {
 }
 ```
 
-## Which one to pick?
+## 어떤 것을 선택해야 할까요?
 
-Here's a quick guide to help you pick the right vector store for your use case:
+다음은 사용 사례에 적합한 VectorStore 를 선택하는 데 도움을 줄 수 있는 빠른 가이드 입니다.
 
-- If you're after something that can just run inside your Node.js application, in-memory, without any other servers to stand up, then go for [HNSWLib](./integrations/hnswlib)
-- If you're looking for something that can run in-memory in browser-like environments, then go for [MemoryVectorStore](./integrations/memory)
-- If you come from Python and you were looking for something similar to FAISS, pick [HNSWLib](./integrations/hnswlib)
-- If you're looking for an open-source full-featured vector database that you can run locally in a docker container, then go for [Chroma](./integrations/chroma)
-- If you're using Supabase already then look at the [Supabase](./integrations/supabase) vector store to use the same Postgres database for your embeddings too
-- If you're looking for a production-ready vector store you don't have to worry about hosting yourself, then go for [Pinecone](./integrations/pinecone)
+- 다른 서버를 구출할 필요 없이 Node.js 애플리케이션 내부에서 in-memory로 실행 가능한 것을 찾고 있다면, [HNSWLib](./integrations/hnswlib)를 선택하세요.
+- 브라우저와 유사한 환경의 in-memory로 실행 가능한 것을 찾고 있다면, [MemoryVectorStore](./integrations/memory)를 선택하세요.
+- Python에서 FAISS와 유사한 것을 찾고 있다면, [HNSWLib](./integrations/hnswlib)를 선택하세요.
+- Docker 컨테이너에서 로컬로 실행할 수 있는 모든 기능을 갖춘 오픈 소스 벡터 데이터베이스를 찾고 있다면, [Chroma](./integrations/chroma)를 선택하세요.
+- 이미 [Supabase](./integrations/supabase)를 사용중이라면, Embeddings에도 동일한 Postgres 데이터베이스를 사용하길 원한다면 Supabase VectorStore를 살펴보세요.
+- 직접 호스팅할 필요가 없는 프로덕션용 벡터 스토어를 찾고 있다면, [Pinecone](./integrations/pinecone)를 선택하세요.
 
-## All Vector Stores
+## 모든 Vector Stores
 
 import DocCardList from "@theme/DocCardList";
 
