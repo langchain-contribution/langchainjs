@@ -1,13 +1,13 @@
 # JSON files
 
-The JSON loader use [JSON pointer](https://github.com/janl/node-jsonpointer) to target keys in your JSON files you want to target.
+Json loader는 JSON 파일의 원하는 키를 대상으로 지정하기 위해 [JSON pointer](https://github.com/janl/node-jsonpointer)를 사용합니다.
 
-### No JSON pointer example
+### JSON pointer 미사용 예제
 
-The most simple way of using it, is to specify no JSON pointer.
-The loader will load all strings it finds in the JSON object.
+JSON loader를 가장 간단하게 사용하는 방법은 JSON pointer를 사용하지 않는 것입니다.
+JSON loader는 JSON 객체 안에 모든 문자열들을 찾아 로드합니다.
 
-Example JSON file:
+JSON file 예시:
 
 ```json
 {
@@ -15,7 +15,7 @@ Example JSON file:
 }
 ```
 
-Example code:
+코드 예시:
 
 ```typescript
 import { JSONLoader } from "langchain/document_loaders/fs/json";
@@ -45,11 +45,10 @@ const docs = await loader.load();
 */
 ```
 
-### Using JSON pointer example
+### JSON pointer 사용법
 
-You can do a more advanced scenario by choosing which keys in your JSON object you want to extract string from.
-
-In this example, we want to only extract information from "from" and "surname" entries.
+JSON 객체에서 문자열을 추출하고 싶은 키를 지정하여 더 복잡한 작업을 수행할 수 있습니다.
+이 예시에서는, "from"을 키로 가지는 정보와 "surname"을 키로 가지는 정보만 추출하는 예시입니다.
 
 ```json
 {
@@ -70,7 +69,7 @@ In this example, we want to only extract information from "from" and "surname" e
 }
 ```
 
-Example code:
+코드 예시:
 
 ```typescript
 import { JSONLoader } from "langchain/document_loaders/fs/json";
