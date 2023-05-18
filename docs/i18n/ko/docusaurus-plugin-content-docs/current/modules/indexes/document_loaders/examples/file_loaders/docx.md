@@ -4,15 +4,15 @@ hide_table_of_contents: true
 
 # Docx files
 
-This example goes over how to load data from docx files.
+이 에제는 docx file로부터 data를 로드하는 방법에 대해 전반적으로 살펴봅니다.
 
-# Setup
+# 준비
 
 ```bash npm2yarn
 npm install mammoth
 ```
 
-# Usage
+# 사용 방법
 
 ```typescript
 import { DocxLoader } from "langchain/document_loaders/fs/docx";
