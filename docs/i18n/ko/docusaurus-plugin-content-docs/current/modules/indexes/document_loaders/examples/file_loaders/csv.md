@@ -1,16 +1,16 @@
 # CSV files
 
-This example goes over how to load data from CSV files. The second argument is the `column` name to extract from the CSV file. One document will be created for each row in the CSV file. When `column` is not specified, each row is converted into a key/value pair with each key/value pair outputted to a new line in the document's `pageContent`. When `column` is specified, one document is created for each row, and the value of the specified column is used as the document's pageContent.
+이 예시는 CSV file에서 data를 로드하는 방법에 대해 전반적으로 살펴봅니다. 두 번째 인자는 CSV file에서 추출하고 싶은 `column` 명입니다. CSV file 안에 각 행은 하나의 document로 만들어질 것입니다. 추출하고 싶은 `column`이 명시되지 않았을 때, 각 행은 각각의 document로 만들어지며, document의 `pageContent` 안에 한 쌍의 key/value로 변환되어 새로운 줄로 입력됩니다. 추출하고 싶은 `column`을 명시했을 때, 명시된 열은 document의 `pageContent`로 사용되며, 각 행은 각각의 document로 만들어집니다.
 
-## Setup
+## 준비
 
 ```bash npm2yarn
 npm install d3-dsv@2
 ```
 
-## Usage, extracting all columns
+## 사용 방법, 모든 열을 추출하기
 
-Example CSV file:
+CSV file 예시:
 
 ```csv
 id,text
@@ -18,7 +18,7 @@ id,text
 2,This is another sentence.
 ```
 
-Example code:
+코드 예시:
 
 ```typescript
 import { CSVLoader } from "langchain/document_loaders/fs/csv";
@@ -48,9 +48,9 @@ text: This is another sentence.",
 */
 ```
 
-## Usage, extracting a single column
+## 사용 방법, 열 하나만 추출하기
 
-Example CSV file:
+CSV file 예시:
 
 ```csv
 id,text
@@ -58,7 +58,7 @@ id,text
 2,This is another sentence.
 ```
 
-Example code:
+코드 예시:
 
 ```typescript
 import { CSVLoader } from "langchain/document_loaders/fs/csv";
