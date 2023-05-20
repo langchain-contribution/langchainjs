@@ -1,6 +1,6 @@
 # Prisma
 
-Langchain은 PostgreSQL 데이터베이스의 vector 검색을 위해 [Prisma](https://www.prisma.io/) 및 Postgres 확장자와 함께 [`pgvector`](https://github.com/pgvector/pgvector)를 사용하는 것을 지원합니다.
+Langchain은 PostgreSQL 데이터베이스의 vector 검색을 위해 [Prisma](https://www.prisma.io/) 및 Postgres 확장 플러그인과 함께 [`pgvector`](https://github.com/pgvector/pgvector)를 사용하는 것을 지원합니다.
 
 ## 설치
 
@@ -53,7 +53,7 @@ model Document {
 npm run prisma migrate dev --create-only
 ```
 
-아직 활성화되지 않은 경우, 새로 생성된 마이그레이션에 다음 줄을 추가하여 `pgvector` 확장을 활성화합니다.
+아직 활성화되지 않은 경우, 새로 생성된 마이그레이션에 다음 줄을 추가하여 `pgvector` 확장 플러그인을 활성화합니다.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS vector;

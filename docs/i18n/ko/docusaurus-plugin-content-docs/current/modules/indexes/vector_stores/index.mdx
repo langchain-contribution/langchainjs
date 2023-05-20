@@ -9,12 +9,12 @@ sidebar_position: 3
 [Conceptual Guide](https://docs.langchain.com/docs/components/indexing/vectorstore)
 :::
 
-벡터 스토어는 documents와 [embeddings](../../models/embeddings/)을 저장한 다음 특정 쿼리에 가장 관련성이 높은 documents, 즉 쿼리의 임베딩과 가장 유사한 embeddings을 가져오는 데 최적화된 특정 유형의 데이터베이스입니다.
+Vector Stores는 Documents와 [Embeddings](../../models/embeddings/)을 저장한 다음 특정 쿼리에 가장 관련성이 높은 documents, 즉 쿼리의 임베딩과 가장 유사한 embeddings을 가져오는 데 최적화된 특정 유형의 데이터베이스입니다.
 
 ```typescript
 interface VectorStore {
   /**
-   * 기존 VectorStore에 Documents 더 추가합니다.
+   * 기존 VectorStore에 새로운 Documents 더 추가합니다.
    */
   addDocuments(documents: Document[]): Promise<void>;
 
@@ -42,12 +42,12 @@ interface VectorStore {
   asRetriever(k?: number): BaseRetriever;
 
   /**
-   * 고급: 이미 Embeddings 된 데이터가 있는 경우, 기존의 VectorStore 에 Documents 를 추가합니다.
+   * 심화: 이미 Embeddings 된 데이터가 있는 경우, 기존의 VectorStore 에 Documents 를 추가합니다.
    */
   addVectors(vectors: number[][], documents: Document[]): Promise<void>;
 
   /**
-   * 고급: 이미 Query Embedding 이 있는 경우, Query 와 가장 유사한 문서를 검색합니다.
+   * 심화: 이미 Query Embedding 이 있는 경우, Query 와 가장 유사한 문서를 검색합니다.
    */
   similaritySearchVectorWithScore(
     query: number[],
@@ -57,8 +57,8 @@ interface VectorStore {
 }
 ```
 
-[Documents](../../schema/document) 목록 또는 텍스트 목록과 메타 데이터에서 VectorStore 를 만들 수 있습니다.
-기존 인덱스에서 VectorStore 를 만들 수도 있으며 이 방법의 경우 VectorStore 에 따라 메소드 시그니처가 다르므로 관심 있는 VectorStore의 설명서를 확인하세요.
+텍스트의 목록과 그 메타 데이터에서 벡터 스토어를 새롭게 만들 수 있습니다
+기존의 인덱스로부터 새로운 벡터 스토어를 만들 수 있습니다. 다만 이 방법의 경우 사용하는 벡터 스토어에 따라 메소드 시그너쳐가 다르기 때문에 본인이 사용하는 벡터 스토어의 기술 문서를 확인하세요.
 
 ```typescript
 abstract class BaseVectorStore implements VectorStore {

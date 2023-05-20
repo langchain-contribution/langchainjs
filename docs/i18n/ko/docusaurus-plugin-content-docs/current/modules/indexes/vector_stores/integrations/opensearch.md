@@ -8,7 +8,7 @@ sidebar_class_name: node-only
 Node.js에서만 사용합니다.
 :::
 
-[OpenSearch](https://opensearch.org/)는 [Elasticsearch](https://www.elastic.co/elasticsearch/)의 자식(fork) 오픈소스로, Elasticsearch API와 완벽하게 호환됩니다. 이를 이용하여 가장 가까운 근사 검색에 대한 자세한 내용은 [여기](https://opensearch.org/docs/latest/search-plugins/knn/approximate-knn/)를 참고하세요.
+[OpenSearch](https://opensearch.org/)는 [Elasticsearch](https://www.elastic.co/elasticsearch/)의 포크(fork)한 오픈소스로, Elasticsearch API와 완벽하게 호환됩니다. 이를 이용하여 가장 가까운 근사 검색에 대한 자세한 내용은 [여기](https://opensearch.org/docs/latest/search-plugins/knn/approximate-knn/)를 참고하세요.
 
 Langchain.js는 OpenSearch vectorstore를 사용하기 위한 클라이언트로 [@opensearch-project/opensearch](https://opensearch.org/docs/latest/clients/javascript/index/)를 허용합니다.
 
