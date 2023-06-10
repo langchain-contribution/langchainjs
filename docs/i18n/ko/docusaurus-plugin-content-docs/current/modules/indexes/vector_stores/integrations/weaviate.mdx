@@ -6,25 +6,25 @@ import CodeBlock from "@theme/CodeBlock";
 
 # Weaviate
 
-Weaviate is an open source vector database that stores both objects and vectors, allowing for combining vector search with structured filtering. LangChain connects to Weaviate via the `weaviate-ts-client` package, the official Typescript client for Weaviate.
+Weaviate는 객체와 벡터를 모두 저장하는 오픈소스 벡터 데이터베이스로, 벡터를 검색하고 구조화된 필터링 기능을 적용할 수 있습니다. LangChain은 Weaviate의 공식 타입스크립트 클라이언트인 [`weaviate-ts-client`](https://weaviate.io/developers/weaviate/client-libraries/typescript) 패키지를 통해 Weaviate에 연결합니다.
 
-LangChain inserts vectors directly to Weaviate, and queries Weaviate for the nearest neighbors of a given vector, so that you can use all the LangChain Embeddings integrations with Weaviate.
+LangChain은 Weaviate에 직접 벡터를 삽입하고 주어진 벡터의 가장 가까운 값을 Weaviate에 쿼리하여 모든 LangChain 임베딩 통합을 Weaviate와 사용할 수 있도록 합니다.
 
-## Setup
+## 설치
 
 ```bash npm2yarn
 npm install weaviate-ts-client graphql
 ```
 
-You'll need to run Weaviate either locally or on a server, see [the Weaviate documentation](https://weaviate.io/developers/weaviate/installation) for more information.
+로컬 또는 서버에서 Weaviate를 실행해야 하며, 자세한 내용은 [Weaviate 문서](https://weaviate.io/developers/weaviate/installation)를 참조하세요.
 
-## Usage, insert documents
+## documents 삽입하기
 
 import InsertExample from "@examples/indexes/vector_stores/weaviate_fromTexts.ts";
 
 <CodeBlock language="typescript">{InsertExample}</CodeBlock>
 
-## Usage, query documents
+## documents 쿼리하기
 
 import QueryExample from "@examples/indexes/vector_stores/weaviate_search.ts";
 

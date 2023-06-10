@@ -7,34 +7,34 @@ import CodeBlock from "@theme/CodeBlock";
 # HNSWLib
 
 :::tip Compatibility
-Only available on Node.js.
+Node.js에서만 사용 가능합니다.
 :::
 
-HNSWLib is an in-memory vectorstore that can be saved to a file. It uses [HNSWLib](https://github.com/nmslib/hnswlib).
+HNSWLib는 파일에 저장할 수 있는 in-memory vectorstore 입니다. 해당 문서에서는 [HNSWLib](https://github.com/nmslib/hnswlib)를 사용합니다.
 
-## Setup
+## 설치
 
-You can install it with
+다음 명령어로 설치할 수 있습니다.
 
 ```bash npm2yarn
 npm install hnswlib-node
 ```
 
-## Usage
+## 사용
 
-### Create a new index from texts
+### 텍스트에서 새 index 만들기
 
 import ExampleTexts from "@examples/indexes/vector_stores/hnswlib.ts";
 
 <CodeBlock language="typescript">{ExampleTexts}</CodeBlock>
 
-### Create a new index from a loader
+### loader에서 새 index 만들기
 
 import ExampleLoader from "@examples/indexes/vector_stores/hnswlib_fromdocs.ts";
 
 <CodeBlock language="typescript">{ExampleLoader}</CodeBlock>
 
-### Save an index to a file and load it again
+### index를 파일에 저장하고 다시 로드하기
 
 import ExampleSave from "@examples/indexes/vector_stores/hnswlib_saveload.ts";
 

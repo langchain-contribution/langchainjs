@@ -1,24 +1,24 @@
 # Supabase
 
-Langchain supports using Supabase Postgres database as a vector store, using the `pgvector` postgres extension. Refer to the [Supabase blog post](https://supabase.com/blog/openai-embeddings-postgres-vector) for more information.
+Langchain은 postgres의 확장인 `pgvector` 를 사용하여 Supabase Postgres database 를 VectorStore로 사용할 수 있도록 지원합니다. 자세한 내용은 [Supabase blog post](https://supabase.com/blog/openai-embeddings-postgres-vector)를 참고하세요.
 
-## Setup
+## 설치
 
-### Install the library with
+### 다음 명령어로 라이브러리를 설치합니다.
 
 ```bash npm2yarn
 npm install -S @supabase/supabase-js
 ```
 
-### Create a table and search function in your database
+### 데이터베이스에 테이블 및 검색 기능 만들기
 
-Run this in your database:
+데이터베이스에서 이것을 실행합니다.
 
 ```sql
--- Enable the pgvector extension to work with embedding vectors
+-- 임베딩 벡터와 함께 작동하도록 pgvector 확장을 활성화합니다.
 create extension vector;
 
--- Create a table to store your documents
+-- 문서를 저장할 테이블을 생성합니다.
 create table documents (
   id bigserial primary key,
   content text, -- corresponds to Document.pageContent
@@ -26,7 +26,7 @@ create table documents (
   embedding vector(1536) -- 1536 works for OpenAI embeddings, change if needed
 );
 
--- Create a function to search for documents
+-- 문서를 검색하는 함수를 생성합니다.
 create function match_documents (
   query_embedding vector(1536),
   match_count int
@@ -53,7 +53,7 @@ end;
 $$;
 ```
 
-## Usage
+## 사용
 
 import CodeBlock from "@theme/CodeBlock";
 import Example from "@examples/indexes/vector_stores/supabase.ts";
