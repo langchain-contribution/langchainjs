@@ -6,15 +6,15 @@ sidebar_position: 2
 
 import DocCardList from "@theme/DocCardList";
 
-# Getting Started: Text Splitters
+# Text Splitters 시작하기
 
 :::info
 [Conceptual Guide](https://docs.langchain.com/docs/components/indexing/text-splitters)
 :::
 
-Language Models are often limited by the amount of text that you can pass to them. Therefore, it is neccessary to split them up into smaller chunks. LangChain provides several utilities for doing so.
+언어 모델은 우리가 API 를 통해 넘길수 있는 문자의 양을 주로 제한합니다. 그러므로, 우리는 이를 작은 청크로 나누는 것이 필요합니다. LangChain 은 이를 위한 몇가지 유틸리티를 제공합니다.
 
-Using a Text Splitter can also help improve the results from vector store searches, as eg. smaller chunks may sometimes be more likely to match a query. Testing different chunk sizes (and chunk overlap) is a worthwhile exercise to tailor the results to your use case.
+Text Splitter 를 사용하는 것은 또한 벡터 스토어 검색 결과를 향상시킬 수 있습니다. 예를 들어, 더 작은 청크는 쿼리와 일치할 가능성이 더 높을 수 있습니다. 다른 청크 크기 (및 청크 오버랩)를 테스트하는 것은 사용 사례에 맞게 결과를 맞춤화하는 데 도움이되는 유용한 연습입니다.
 
 ```typescript
 interface TextSplitter {
@@ -31,7 +31,7 @@ interface TextSplitter {
 }
 ```
 
-Text Splitters expose two methods, `createDocuments` and `splitDocuments`. The former takes a list of raw text strings and returns a list of documents. The latter takes a list of documents and returns a list of documents. The difference is that `createDocuments` will split the raw text strings into chunks, while `splitDocuments` will split the documents into chunks.
+Text Splitters 는 두가지 메소드를 노출합니다. `createDocuments` 와 `splitDocuments` 입니다. 전자는 원시 텍스트 문자열의 목록을 가져 와서 문서의 목록을 반환합니다. 후자는 문서의 목록을 가져 와서 문서의 목록을 반환합니다. 차이점은 `createDocuments` 는 원시 텍스트 문자열을 청크로 분할하고, `splitDocuments` 는 문서를 청크로 분할합니다.
 
 ## All Text Splitters
 
@@ -39,7 +39,7 @@ Text Splitters expose two methods, `createDocuments` and `splitDocuments`. The f
 
 ## Advanced
 
-If you want to implement your own custom Text Splitter, you only need to subclass TextSplitter and implement a single method `splitText`. The method takes a string and returns a list of strings. The returned strings will be used as the chunks.
+만약 당신만의 Text Splitter 를 구현하기를 원한다면, 당신은 TextSplitter 를 서브클래스로 만들고, `splitText` 라는 단일 메소드를 구현하면 됩니다. 이 메소드는 문자열을 가져와서 문자열의 목록을 반환합니다. 반환된 문자열은 청크로 사용됩니다.
 
 ```typescript
 abstract class TextSplitter {
