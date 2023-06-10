@@ -5,13 +5,13 @@ sidebar_position: 3
 
 import CodeBlock from "@theme/CodeBlock";
 
-# Example Selectors
+# 예제 선택기 (Example Selectors)
 
 :::info
 [Conceptual Guide](https://docs.langchain.com/docs/components/example-selectors)
 :::
 
-If you have a large number of examples, you may need to programmatically select which ones to include in the prompt. The ExampleSelector is the class responsible for doing so. The base interface is defined as below.
+ExampleSelector는 prompt에 포함할 예제를 프로그래밍 방식으로 선택해야 할 경우 사용하는 클래스입니다. 기본 인터페이스는 아래와 같이 정의됩니다.
 
 ```typescript
 class BaseExampleSelector {
@@ -21,19 +21,19 @@ class BaseExampleSelector {
 }
 ```
 
-It needs to expose a `selectExamples` - this takes in the input variables and then returns a list of examples method - and an `addExample` method, which saves an example for later selection. It is up to each specific implementation as to how those examples are saved and selected. Let’s take a look at some below.
+해당 메소드는 `selectExamples`와 `addExample` 두 가지를 노출해야 합니다. `selectExamples`는 입력 변수를 받아 예제 리스트를 반환하는 메소드이고, `addExample`은 나중에 선택할 예제를 저장하는 메소드입니다. 예제는 어떻게 저장하고 선택할지는 구현에 따라 다릅니다. 아래 예제를 살펴봅시다.
 
-## Select by Length
+## 길이에 따라 정하기
 
-This `ExampleSelector` selects which examples to use based on length. This is useful when you are worried about constructing a prompt that will go over the length of the context window. For longer inputs, it will select fewer examples to include, while for shorter inputs it will select more.
+`ExampleLength` 메소드는 길이에 따라 예제를 선택합니다. 이는 컨텍스트 창의 길이를 초과하는 프롬프트를 구성하는 데 걱정될 때 유용합니다. 긴 입력의 경우 포함할 예제가 적게 선택되고, 짧은 입력의 경우 더 많이 선택됩니다.
 
 import ExampleLength from "@examples/prompts/length_based_example_selector.ts";
 
 <CodeBlock language="typescript">{ExampleLength}</CodeBlock>
 
-## Select by Similarity
+## 유사도에 따라 정하기
 
-The `SemanticSimilarityExampleSelector` selects examples based on which examples are most similar to the inputs. It does this by finding the examples with the embeddings that have the greatest cosine similarity with the inputs.
+`SemanticSimilarityExampleSelector` 메소드는 입력과 가장 유사한 예제를 선택합니다. 이는 입력과 가장 코사인 유사도가 큰 임베딩을 가진 예제를 찾아서 수행합니다.
 
 import ExampleSimilarity from "@examples/prompts/semantic_similarity_example_selector.ts";
 
