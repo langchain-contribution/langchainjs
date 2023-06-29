@@ -1,16 +1,16 @@
 # Helicone
 
-This page covers how to use the [Helicone](https://helicone.ai) within LangChain.
+이 페이지는 [Helicone](https://helicone.ai) 을 랭체인 안에서 사용하는 법을 다룹니다.
 
 ## What is Helicone?
 
-Helicone is an [open source](https://github.com/Helicone/helicone) observability platform that proxies your OpenAI traffic and provides you key insights into your spend, latency and usage.
+Helicone 은 오픈소스 관측(observability) 플랫폼 입니다. 사용자의 OpenAI 트래픽을 프록시 할수 있도록 하고, 사용량과 지연(Latency)에 관한 인싸이트를 제공합니다.
 
 ![Helicone](/img/HeliconeDashboard.png)
 
 ## Quick start
 
-With your LangChain environment you can just add the following parameter.
+LangChain 환경에서는 아래와 같이 Parameter 를 추가하는 것만으로 사용할 수 있습니다.
 
 ```typescript
 const model = new OpenAI(
@@ -22,7 +22,7 @@ const model = new OpenAI(
 const res = await model.call("What is a helicone?");
 ```
 
-Now head over to [helicone.ai](https://helicone.ai/onboarding?step=2) to create your account, and add your OpenAI API key within our dashboard to view your logs.
+이제 [helicon.ai](https://helicone.ai/onboarding?step=2) 싸이트로 이동해 계정을 만들고, 당신의 OpenAI API 키를 추가하면 위에서 언급한것과 같이 OpenAI 트래픽에 관한 로그를 확인할 수 있습니다. 
 
 ![Helicone](/img/HeliconeKeys.png)
 

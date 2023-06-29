@@ -2,22 +2,20 @@ import CodeBlock from "@theme/CodeBlock";
 
 # Unstructured
 
-This page covers how to use [Unstructured](https://unstructured.io) within LangChain.
+이 페이지는 [Unstructured](https://unstructured.io)를 LangChain에서 사용하는 방법을 다룹니다.
 
 ## What is Unstructured?
 
-Unstructured is an [open source](https://github.com/Unstructured-IO/unstructured) Python package for extracting text from raw documents for use in machine learning applications. Currently, Unstructured supports partitioning Word documents (in `.doc` or `.docx` format), PowerPoints (in `.ppt` or `.pptx` format), PDFs, HTML files, images, emails (in `.eml` or `.msg` format), epubs, markdown, and plain text files.
+Unstructured 는 오픈소스 파이썬 패키지로 문서에서 텍스트를 추출하여 머신러닝 애플리케이션에서 사용할 수 있습니다. 현재 Unstructured 는 워드 문서 (`.doc` 또는 `.docx` 형식), 파워포인트 (`.ppt` 또는 `.pptx` 형식), PDF, HTML 파일, 이미지, 이메일 (`.eml` 또는 `.msg` 형식), epub, 마크다운 및 일반 텍스트 파일을 지원합니다.
 
-`unstructured` is a Python package and cannot be used directly with TS/JS, however Unstructured also maintains a [REST API](https://github.com/Unstructured-IO/unstructured-api) to support pre-processing pipelines written in other programming languages. The endpoint for the hosted Unstructured API is `https://api.unstructured.io/general/v0/general`, or you can run the service locally using the instructions found [here](https://github.com/Unstructured-IO/unstructured-api#dizzy-instructions-for-using-the-docker-image).
+`unstrcutured` 는 파이썬 패키지로 TS/JS 에서는 직접적으로 사용할 수는 없습니다. 하지만 Unstructured 는 다른 프로그래밍 언어로의 전처리 파이프 라인을 지원하기 위해 [REST API](https://github.com/Unstructured-IO/unstrcutured-api) 를 제공합니다. 호스팅 되어 있는 Unstructured API 종단점(Endpoint) 는 `https://api.unstructured.io/general/v0/general` 입니다. 당신은 이 서비스를 [이곳](https://github.com/Unstructured-IO/unstructured-api#dizzy-instructions-for-using-the-docker-image)에서 명령어를 찾아서 로컬에 실행할 수도 있습니다.
 
 ## Quick start
 
-You can use Unstructured in `langchain` with the following code.
-Replace the filename with the file you would like to process.
-If you are running the container locally, switch the url to
-`http://127.0.0.1:8000/general/v0/general`.
-Check out the [API documentation page](https://api.unstructured.io/general/docs)
-for additional details.
+LangChain 에서 Unstructured 를 아래의 코드와 같이 사용할 수 있습니다.
+당신이 처리하고 싶은 파일로 파일이름을 바꿔주세요.
+만약 컨테이너를 로컬에 뛰우고 싶다면, url 을 `http://127.0.0.1:8000/general/v0/general` 로 바꿔주세요.
+더 많은 정보를 보고 싶다면, 이 API [문서 페이지](https://api.unstructured.io/general/docs)를 확인해주세요.
 
 import SingleExample from "@examples/document_loaders/unstructured.ts";
 
@@ -25,25 +23,24 @@ import SingleExample from "@examples/document_loaders/unstructured.ts";
 
 ## Directories
 
-You can also load all of the files in the directory using `UnstructuredDirectoryLoader`, which inherits from [`DirectoryLoader`](../modules/indexes/document_loaders/examples/file_loaders/directory.md):
+폴더안에 있는 모든 파일을 불러오기 위해 [`DirectoryLoader`](../modules/indexes/document_loaders/examples/file_loaders/directory.md) 를 상속하고 있는 `UnstructuredDirectoryLoader` 을 사용할 수 있습니다.
 
 import DirectoryExample from "@examples/document_loaders/unstructured_directory.ts";
 
 <CodeBlock language="typescript">{DirectoryExample}</CodeBlock>
 
-Currently, the `UnstructuredLoader` supports the following document types:
+현재, `UnstructuredLoader` 는 다음의 문서 형식을 지원합니다:
 
-- Plain text files (`.txt`/`.text`)
+- 기본 텍스트 파일(`.txt`/`.text`)
 - PDFs (`.pdf`)
-- Word Documents (`.doc`/`.docx`)
-- PowerPoints (`.ppt`/`.pptx`)
-- Images (`.jpg`/`.jpeg`)
-- Emails (`.eml`/`.msg`)
+- Word 문서 (`.doc`/`.docx`)
+- 파워포인트 (`.ppt`/`.pptx`)
+- 사진  (`.jpg`/`.jpeg`)
+- 이메일 (`.eml`/`.msg`)
 - HTML (`.html`)
-- Markdown Files (`.md`)
+- 마크다운 파일 (`.md`)
 
-The output from the `UnstructuredLoader` will be an array of `Document` objects that looks
-like the following:
+`UnstructuredLoader` 의 출력은 다음과 같은 `Document` 객체의 배열입니다.
 
 ```typescript
 [
