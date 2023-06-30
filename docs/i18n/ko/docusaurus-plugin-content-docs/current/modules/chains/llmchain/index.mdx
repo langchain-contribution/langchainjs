@@ -6,16 +6,16 @@ sidebar_label: LLM Chain
 import CodeBlock from "@theme/CodeBlock";
 import Example from "@examples/chains/llm_chain.ts";
 
-# Getting Started: LLMChain
+# LLMChain 시작하기
 
 :::info
-[Conceptual Guide](https://docs.langchain.com/docs/components/chains/llm-chain)
+[개념 가이드](https://docs.langchain.com/docs/components/chains/llm-chain)
 :::
 
-An `LLMChain` is a simple chain that adds some functionality around language models. It is used widely throughout LangChain, including in other chains and agents.
+`LLMChain`은 언어 모델에 몇 가지 기능을 추가하는 간단한 체인입니다. 다른 체인 및 에이전트를 포함하여 LangChain 전체에서 널리 사용됩니다.
 
-An `LLMChain` consists of a `PromptTemplate` and a language model (either and LLM or chat model).
+`LLMChain`은 `PromptTemplate`과 언어 모델(LLM 또는 채팅 모델 중 하나)로 구성됩니다.
 
-We can construct an LLMChain which takes user input, formats it with a PromptTemplate, and then passes the formatted response to an LLM:
+다음과 같이 사용자 입력을 받아 `PromptTemplate`로 형식을 지정한 다음 형식이 지정된 응답을 LLM에 전달하는 LLMChain을 구성할 수 있습니다.
 
 <CodeBlock language="typescript">{Example}</CodeBlock>
