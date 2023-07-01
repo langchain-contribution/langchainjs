@@ -22,7 +22,7 @@ const model = new OpenAI(
 const res = await model.call("What is a helicone?");
 ```
 
-이제 [helicon.ai](https://helicone.ai/onboarding?step=2) 싸이트로 이동해 계정을 만들고, 당신의 OpenAI API 키를 추가하면 위에서 언급한것과 같이 OpenAI 트래픽에 관한 로그를 확인할 수 있습니다. 
+이제 [helicon.ai](https://helicone.ai/onboarding?step=2) 주소로 이동해 계정을 만들고, 당신의 OpenAI API 키를 추가하면 위에서 언급한것과 같이 OpenAI 트래픽에 관한 로그를 확인할 수 있습니다. 
 
 ![Helicone](/img/HeliconeKeys.png)
 
