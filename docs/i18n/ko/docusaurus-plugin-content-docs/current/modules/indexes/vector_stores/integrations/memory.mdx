@@ -8,23 +8,23 @@ import CodeBlock from "@theme/CodeBlock";
 
 # `MemoryVectorStore`
 
-MemoryVectorStore is an in-memory, ephemeral vectorstore that stores embeddings in-memory and does an exact, linear search for the most similar embeddings. The default similarity metric is cosine similarity, but can be changed to any of the similarity metrics supported by [ml-distance](https://mljs.github.io/distance/modules/similarity.html).
+MemoryVectorStore는 임베딩을 메모리에 저장하고 가장 유사한 임베딩을 정확하게 선형 검색하는 인메모리 임시 벡터 저장소입니다. 기본 유사성 지표는 코사인 유사성이지만, [ml-distance](https://mljs.github.io/distance/modules/similarity.html)에서 지원하는 유사성 지표 중 하나로 변경할 수 있습니다.
 
-## Usage
+## 사용 방법
 
-### Create a new index from texts
+### 텍스트에서 새 index 만들기
 
 import ExampleTexts from "@examples/indexes/vector_stores/memory.ts";
 
 <CodeBlock language="typescript">{ExampleTexts}</CodeBlock>
 
-### Create a new index from a loader
+### loader에서 새 index 만들기
 
 import ExampleLoader from "@examples/indexes/vector_stores/memory_fromdocs.ts";
 
 <CodeBlock language="typescript">{ExampleLoader}</CodeBlock>
 
-### Use a custom similarity metric
+### 사용자 정의 유사도 지표 사용하기
 
 import ExampleCustom from "@examples/indexes/vector_stores/memory_custom_similarity.ts";
 

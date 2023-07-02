@@ -1,22 +1,22 @@
 # Prisma
 
-For augmenting existing models in PostgreSQL database with vector search, Langchain supports using [Prisma](https://www.prisma.io/) together with PostgreSQL and [`pgvector`](https://github.com/pgvector/pgvector) Postgres extension.
+Langchain은 PostgreSQL 데이터베이스에서 벡터 검색을 위해 [Prisma](https://www.prisma.io/)와 PostgreSQL 그리고 [`pgvector`](https://github.com/pgvector/pgvector) Postgres 확장 기능을 함께 사용하는 것을 지원합니다.
 
-## Setup
+## 준비
 
-### Setup database instance with Supabase
+### Supabase를 사용하여 데이터베이스 인스턴스 설정
 
-Refer to the [Prisma and Supabase integration guide](https://supabase.com/docs/guides/integrations/prisma) to setup a new database instance with Supabase and Prisma.
+Supabase와 Prisma로 새 데이터베이스 인스턴스를 설정하려면 [Prisma와 Supabase 통합 가이드](https://supabase.com/docs/guides/integrations/prisma)를 참고하세요.
 
-### Install Prisma
+### Prisma 설치
 
 ```bash npm2yarn
 npm install prisma
 ```
 
-### Setup `pgvector` self hosted instance with `docker-compose`
+### `docker-compose`로 `pgvector` 셀프 호스팅 인스턴스 설정
 
-`pgvector` provides a prebuilt Docker image that can be used to quickly setup a self-hosted Postgres instance.
+`pgvector`는 미리 빌드된 도커 이미지를 제공하여 쉽게 자체 호스팅 Postgres 인스턴스를 설정할 수 있습니다.
 
 ```yaml
 services:
@@ -35,9 +35,9 @@ volumes:
   db:
 ```
 
-### Create a new schema
+### 새로운 스키마 생성
 
-Assuming you haven't created a schema yet, create a new model with a `vector` field of type `Unsupported("vector")`:
+아직 스키마를 생성하지 않았다고 가정하고, Unsupported("vector") 유형의 vector 필드를 가진 새로운 모델을 생성하세요.:
 
 ```prisma
 model Document {
@@ -47,34 +47,34 @@ model Document {
 }
 ```
 
-Afterwards, create a new migration with `--create-only` to avoid running the migration directly.
+그 후, 직접 마이그레이션을 실행하지 않도록 `--create-only` 옵션을 사용하여 새로운 마이그레이션을 생성하세요.
 
 ```bash npm2yarn
 npm run prisma migrate dev --create-only
 ```
 
-Add the following line to the newly created migration to enable `pgvector` extension if it hasn't been enabled yet:
+아직 pgvector 확장이 활성화되지 않았다면, 새로 생성된 마이그레이션에 다음 줄을 추가하여 pgvector 확장을 활성화하세요.:
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS vector;
 ```
 
-Run the migration afterwards:
+그런 다음 마이그레이션을 실행합니다:
 
 ```bash npm2yarn
 npm run prisma migrate dev
 ```
 
-## Usage
+## 사용 방법
 
 import CodeBlock from "@theme/CodeBlock";
 import Example from "@examples/indexes/vector_stores/prisma_vectorstore/prisma.ts";
 import Schema from "@examples/indexes/vector_stores/prisma_vectorstore/prisma/schema.prisma";
 
-Use the `withModel` method to get proper type hints for `metadata` field:
+'withModel' 메소드를 사용하여 `metadata' 필드에 대한 적절한 타입 추론을 얻습니다:
 
 <CodeBlock language="typescript">{Example}</CodeBlock>
 
-The sample above uses the following schema:
+위의 샘플은 다음 스키마를 사용합니다:
 
 <CodeBlock language="prisma">{Schema}</CodeBlock>

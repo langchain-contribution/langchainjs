@@ -4,23 +4,23 @@ sidebar_class_name: node-only
 
 # OpenSearch
 
-:::tip Compatibility
-Only available on Node.js.
+:::호환성 팁
+Node.js 환경에서만 동작합니다.
 :::
 
-[OpenSearch](https://opensearch.org/) is a fork of [Elasticsearch](https://www.elastic.co/elasticsearch/) that is fully compatible with the Elasticsearch API. Read more about their support for Approximate Nearest Neighbors [here](https://opensearch.org/docs/latest/search-plugins/knn/approximate-knn/).
+[OpenSearch](https://opensearch.org/)는 [Elasticsearch](https://www.elastic.co/elasticsearch/)의 파생된 버전으로, Elasticsearch API와 완벽하게 호환됩니다. 근사 이웃 탐색에 대한 지원은 [여기](https://opensearch.org/docs/latest/search-plugins/knn/approximate-knn/)에서 자세히 알아보세요.
 
-Langchain.js accepts [@opensearch-project/opensearch](https://opensearch.org/docs/latest/clients/javascript/index/) as the client for OpenSearch vectorstore.
+Langchain.js는 [@opensearch-project/opensearch](https://opensearch.org/docs/latest/clients/javascript/index/)를 OpenSearch 벡터스토어의 클라이언트로 허용합니다.
 
-## Setup
+## 준비
 
 ```bash npm2yarn
 npm install -S @opensearch-project/opensearch
 ```
 
-You'll also need to have an OpenSearch instance running. You can use the [official Docker image](https://opensearch.org/docs/latest/opensearch/install/docker/) to get started. You can also find an example docker-compose file [here](https://github.com/hwchase17/langchainjs/blob/main/examples/src/indexes/vector_stores/opensearch/docker-compose.yml).
+OpenSearch 인스턴스가 실행 중이어야 합니다. [공식 Docker 이미지](https://opensearch.org/docs/latest/opensearch/install/docker/)를 사용하여 시작할 수 있습니다. 또한 [여기](https://github.com/hwchase17/langchainjs/blob/main/examples/src/indexes/vector_stores/opensearch/docker-compose.yml)에서 docker-compose 예제 파일을 찾을 수도 있습니다.
 
-## Index docs
+## Document 인덱스
 
 ```typescript
 import { Client } from "@opensearch-project/opensearch";
@@ -58,7 +58,7 @@ await OpenSearchVectorStore.fromDocuments(docs, new OpenAIEmbeddings(), {
 });
 ```
 
-## Query docs
+## Document 쿼리
 
 ```typescript
 import { Client } from "@opensearch-project/opensearch";

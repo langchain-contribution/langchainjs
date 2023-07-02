@@ -4,17 +4,17 @@ sidebar_class_name: node-only
 
 # Pinecone
 
-:::tip Compatibility
-Only available on Node.js.
+:::호환성 팁
+Node.js 환경에서만 동작합니다.
 :::
 
-Langchain.js accepts [@pinecone-database/pinecone](https://docs.pinecone.io/docs/node-client) as the client for Pinecone vectorstore. Install the library with
+Langchain.js는 Pinecone 벡터스토어의 클라이언트로 [@pinecone-database/pinecone](https://docs.pinecone.io/docs/node-client)를 허용합니다. 라이브러리를 다음과 같이 설치합니다.
 
 ```bash npm2yarn
 npm install -S dotenv langchain @pinecone-database/pinecone
 ```
 
-## Index docs
+## Document 인덱스
 
 ```typescript
 import { PineconeClient } from "@pinecone-database/pinecone";
@@ -56,7 +56,7 @@ await PineconeStore.fromDocuments(docs, new OpenAIEmbeddings(), {
 });
 ```
 
-## Query docs
+## Document 쿼리
 
 ```typescript
 import { PineconeClient } from "@pinecone-database/pinecone";

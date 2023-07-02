@@ -4,29 +4,29 @@ sidebar_class_name: node-only
 
 # Milvus
 
-[Milvus](https://milvus.io/) is a vector database built for embeddings similarity search and AI applications.
+[Milvus](https://milvus.io/)는 임베딩 유사도 검색 및 AI 애플리케이션을 위해 구축된 벡터 데이터베이스입니다.
 
-:::tip Compatibility
-Only available on Node.js.
+:::호환성 팁
+Node.js 환경에서만 동작합니다.
 :::
 
-## Setup
+## 준비
 
-1. Run Milvus instance with Docker on your computer [docs](https://milvus.io/docs/v2.1.x/install_standalone-docker.md)
-2. Install the Milvus Node.js SDK.
+1. 컴퓨터에서 Docker로 Milvus 인스턴스 실행 [문서](https://milvus.io/docs/v2.1.x/install_standalone-docker.md)
+2. Milvus Node.js SDK 설치.
 
 ```bash npm2yarn
 npm install -S @zilliz/milvus2-sdk-node
 ```
 
-3. Setup Env variables for Milvus before running the code
+3. 코드 실행 전 Milvus 환경 변수 설정.
 
 ```bash
 export OPENAI_API_KEY=YOUR_OPEN_API_HERE
 export MILVUS_URL=YOUR_MILVUS_URL_HERE # for example http://localhost:19530
 ```
 
-## Index and query docs
+## document 인덱스, 쿼리
 
 ```typescript
 import { Milvus } from "langchain/vectorstores/milvus";
@@ -61,7 +61,7 @@ const vectorStore = await Milvus.fromDocuments(docs, new OpenAIEmbeddings(), {
 const response = await vectorStore.similaritySearch("scared", 2);
 ```
 
-## Query docs from existing collection
+## 기존 수집 document에서 document 쿼리
 
 ```typescript
 import { Milvus } from "langchain/vectorstores/milvus";
