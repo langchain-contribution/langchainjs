@@ -4,15 +4,15 @@ hide_table_of_contents: true
 
 # TokenTextSplitter
 
-Finally, `TokenTextSplitter` splits a raw text string by first converting the text into BPE tokens, then split these tokens into chunks and convert the tokens within a single chunk back into text.
+마지막으로, `TokenTextSplitter`는 먼저 텍스트를 BPE 토큰으로 변환하여 원문 텍스트 문자열을 분할한 다음, 이 토큰을 청크로 분할하고 단일 청크 내의 토큰을 다시 텍스트로 변환합니다.
 
-To utilize the `TokenTextSplitter`, first install the accompanying required library
+`TokenTextSplitter`를 사용하려면 먼저 함께 제공되는 필수 라이브러리를 설치해야 합니다.
 
 ```bash npm2yarn
 npm install -S @dqbd/tiktoken
 ```
 
-Then, you can use it like so:
+그런 다음 다음과 같이 사용할 수 있습니다.:
 
 ```typescript
 import { Document } from "langchain/document";

@@ -4,15 +4,15 @@ hide_table_of_contents: true
 
 # Subtitles
 
-This example goes over how to load data from subtitle files. One document will be created for each subtitles file.
+이 예시는 subtitle 파일들로부터 data를 로드하는 방법에 대해 살펴봅니다. 한 document는 각각의 subtitle 파일로부터 생성됩니다.
 
-## Setup
+## 준비
 
 ```bash npm2yarn
 npm install srt-parser-2
 ```
 
-## Usage
+## 사용 방법
 
 ```typescript
 import { SRTLoader } from "langchain/document_loaders/fs/srt";

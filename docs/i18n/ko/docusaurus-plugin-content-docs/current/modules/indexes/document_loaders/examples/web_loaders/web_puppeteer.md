@@ -7,23 +7,23 @@ sidebar_class_name: node-only
 
 # Webpages, with Puppeteer
 
-:::tip Compatibility
-Only available on Node.js.
+:::호환성 팁
+Node.js 환경에서만 동작합니다.
 :::
 
-This example goes over how to load data from webpages using Puppeteer. One document will be created for each webpage.
+이 예시 에서는 Puppeteer를 사용하여 웹페이지로부터 데이터를 로드하는 방법에 대해 설명합니다. 각 웹페이지마다 하나의 document가 생성됩니다.
 
-Puppeteer is a Node.js library that provides a high-level API for controlling headless Chrome or Chromium. You can use Puppeteer to automate web page interactions, including extracting data from dynamic web pages that require JavaScript to render.
+Puppeteer는 headless Chrome 또는 Chromium을 제어하기 위한 상위 수준의 API를 제공하는 Node.js 라이브러리입니다. Puppeteer를 사용하면 렌더링에 JavaScript가 필요한 동적 웹 페이지에서 데이터를 추출하는 등 웹 페이지 상호 작용을 자동화할 수 있습니다.
 
-If you want a lighterweight solution, and the webpages you want to load do not require JavaScript to render, you can use the [CheerioWebBaseLoader](./web_cheerio.md) instead.
+더 가벼운 솔루션을 원하고 로드하려는 웹페이지에 렌더링하는 데 자바스크립트가 필요하지 않은 경우, [CheerioWebBaseLoader](./web_cheerio.md)를 대신 사용할 수 있습니다.
 
-## Setup
+## 준비
 
 ```bash npm2yarn
 npm install puppeteer
 ```
 
-## Usage
+## 사용 방법
 
 ```typescript
 import { PuppeteerWebBaseLoader } from "langchain/document_loaders/web/puppeteer";
@@ -37,9 +37,9 @@ const loader = new PuppeteerWebBaseLoader("https://www.tabnews.com.br/");
 const docs = await loader.load();
 ```
 
-## Options
+## 옵션
 
-Here's an explanation of the parameters you can pass to the PuppeteerWebBaseLoader constructor using the PuppeteerWebBaseLoaderOptions interface:
+다음은 PuppeteerWebBaseLoaderOptions 인터페이스를 사용하여 생성자에 전달할 수 있는 파라미터에 대한 설명입니다.:
 
 ```typescript
 type PuppeteerWebBaseLoaderOptions = {
@@ -49,15 +49,15 @@ type PuppeteerWebBaseLoaderOptions = {
 };
 ```
 
-1. `launchOptions`: an optional object that specifies additional options to pass to the puppeteer.launch() method. This can include options such as the headless flag to launch the browser in headless mode, or the slowMo option to slow down Puppeteer's actions to make them easier to follow.
+1. `launchOptions`: puppeteer.launch() 메서드에 전달할 추가 옵션을 지정하는 선택 객체입니다. 여기에는 브라우저를 헤드리스 모드로 실행하는 headless flag나 Puppeteer의 동작을 따라하기 쉽도록 느리게 하는 slowMo 옵션과 같은 옵션이 포함될 수 있습니다.
 
-2. `gotoOptions`: an optional object that specifies additional options to pass to the page.goto() method. This can include options such as the timeout option to specify the maximum navigation time in milliseconds, or the waitUntil option to specify when to consider the navigation as successful.
+2. `gotoOptions`: page.goto() 메서드에 전달할 추가 옵션을 지정하는 선택 객체입니다. 여기에는 최대 탐색 시간(ms)을 지정하는 시간 초과 옵션이나 탐색이 성공한 것으로 간주할 시점을 지정하는 waitUntil 옵션과 같은 옵션이 포함될 수 있습니다.
 
-3. `evaluate`: an optional function that can be used to evaluate JavaScript code on the page using the page.evaluate() method. This can be useful for extracting data from the page or interacting with page elements. The function should return a Promise that resolves to a string containing the result of the evaluation.
+3. `evaluate`: page.evaluate() 메서드를 사용하여 페이지에서 자바스크립트 코드를 평가하는 데 사용할 수 있는 선택 함수입니다. 페이지에서 데이터를 추출하거나 페이지 요소와 상호 작용하는 데 사용할 수 있습니다. 이 함수는 평가 결과가 포함된 문자열을 담은 promise를 반환해야 합니다.
 
-By passing these options to the `PuppeteerWebBaseLoader` constructor, you can customize the behavior of the loader and use Puppeteer's powerful features to scrape and interact with web pages.
+이 옵션을 `PuppeteerWebBaseLoader` 생성자에 전달하면 로더의 동작을 맞춤 설정하고, Puppeteer의 강력한 기능을 사용하여 웹 페이지를 스크래핑하고 상호 작용할 수 있습니다.
 
-Here is a basic example to do it:
+다음은 이를 수행하는 기본 예시입니다.:
 
 ```typescript
 import { PuppeteerWebBaseLoader } from "langchain/document_loaders/web/puppeteer";

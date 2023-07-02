@@ -4,19 +4,19 @@ hide_table_of_contents: true
 
 # Unstructured
 
-This example covers how to use [Unstructured](../../../../../ecosystem/unstructured) to load files of many types. Unstructured currently supports loading of text files, powerpoints, html, pdfs, images, and more.
+이 예시는 [Unstructured](../../../../../ecosystem/unstructured)을 사용하여 다양한 유형의 파일을 로드하는 방법에 대해 살펴봅니다. Unstructured은 현재 텍스트 파일, 파워포인트, html, pdf, 이미지 등등을 지원합니다.
 
-## Setup
+## 준비
 
-You can run Unstructured locally in your computer using Docker. To do so, you need to have Docker installed. You can find the instructions to install Docker [here](https://docs.docker.com/get-docker/).
+당신은 Docker를 사용하여 Unstructured를 동작시킬 수 있습니다. 우선, Docker를 설치해야 합니다. [여기](https://docs.docker.com/get-docker/)에서 Docker를 설치하는 방법을 찾을 수 있습니다.
 
 ```bash
 docker run -p 8000:8000 -d --rm --name unstructured-api quay.io/unstructured-io/unstructured-api:latest --port 8000 --host 0.0.0.0
 ```
 
-## Usage
+## 사용 방법
 
-Once Unstructured is running, you can use it to load files from your computer. You can use the following code to load a file from your computer.
+Unstructured가 동작시키면, 이것을 통해 컴퓨터 내의 파일들을 가져올 수 있습니다. 다음 코드를 통해 파일을 로드해보세요.
 
 import CodeBlock from "@theme/CodeBlock";
 import Example from "@examples/document_loaders/unstructured.ts";
@@ -25,7 +25,7 @@ import Example from "@examples/document_loaders/unstructured.ts";
 
 ## Directories
 
-You can also load all of the files in the directory using `UnstructuredDirectoryLoader`, which inherits from [`DirectoryLoader`](./directory.md):
+당신은 `UnstructuredDirectoryLoader`를 사용하여 디렉토리 내 모든 파일들을 로드할 수 있습니다. `UnstructuredDirectoryLoader`는 [`DirectoryLoader`](./directory.md)를 상속받습니다:
 
 import DirectoryExample from "@examples/document_loaders/unstructured_directory.ts";
 

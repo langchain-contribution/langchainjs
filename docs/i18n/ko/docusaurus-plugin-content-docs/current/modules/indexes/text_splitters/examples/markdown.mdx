@@ -4,7 +4,7 @@ hide_table_of_contents: true
 
 # `MarkdownTextSplitter`
 
-If your content is in Markdown format then `MarkdownTextSplitter`. This class will split your content into documents based on the Markdown headers. For example, if you have the following Markdown content:
+만약 콘텐츠가 Markdown 형식이라면 `MarkdownTextSplitter` 클래스를 사용하여 콘텐츠를 Markdown 헤더를 기준으로 문서로 분할할 수 있습니다. 예를 들어, 다음과 같은 Markdown 콘텐츠가 있다고 가정해봅시다.:
 
 ```markdown
 # Header 1
@@ -20,7 +20,7 @@ This is some more content.
 This is even more content.
 ```
 
-Then the `MarkdownTextSplitter` will split the content into three documents:
+그럼 `MarkdownTextSplitter`는 콘텐츠를 세 개의 문서로 분할할 것입니다:
 
 ```typescript
 import { MarkdownTextSplitter } from "langchain/text_splitter";
