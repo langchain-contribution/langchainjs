@@ -2,30 +2,30 @@ import CodeBlock from "@theme/CodeBlock";
 
 # Chroma
 
-Chroma는 오픈소스 Apache 2.0 임베딩 데이터베이스입니다.
+Chroma 는 오픈소스 Apache 2.0 임베딩 데이터베이스 입니다.
 
-## 준비
+## 설치
 
-1. 컴퓨터에서 Docker로 Chroma 실행. [문서](https://docs.trychroma.com/api-reference)
-2. Chroma JS SDK를 설치.
+1. 로컬 컴퓨터에서 Docker 로 Chroma 실행[docs](https://docs.trychroma.com/api-reference)
+2. Chroma JS SDK를 설치
 
 ```bash npm2yarn
 npm install -S chromadb
 ```
 
-## Documents 쿼리와 Document 인덱스
+## Index 및 Query documents 사용하기
 
 import FromDocs from "@examples/indexes/vector_stores/chroma/fromDocs.ts";
 
 <CodeBlock language="typescript">{FromDocs}</CodeBlock>
 
-## 텍스트 쿼리와 텍스트 인덱스
+## Index 및 Query texts 사용하기
 
 import FromTexts from "@examples/indexes/vector_stores/chroma/fromTexts.ts";
 
 <CodeBlock language="typescript">{FromTexts}</CodeBlock>
 
-## 기존 수집 Document에서 Document 쿼리
+## 기존에 존재하는 Collection에서 문서 쿼리하기
 
 import Search from "@examples/indexes/vector_stores/chroma/search.ts";
 

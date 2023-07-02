@@ -4,11 +4,12 @@ sidebar_class_name: node-only
 
 # Pinecone
 
-:::호환성 팁
-Node.js 환경에서만 동작합니다.
+:::tip Compatibility
+Node.js에서만 사용 가능합니다.
 :::
 
-Langchain.js는 Pinecone 벡터스토어의 클라이언트로 [@pinecone-database/pinecone](https://docs.pinecone.io/docs/node-client)를 허용합니다. 라이브러리를 다음과 같이 설치합니다.
+Langchain.js는 Pinecone vectorstore를 사용하기 위한 클라이언트로 [@pinecone-database/pinecone](https://docs.pinecone.io/docs/node-client)를 허용합니다.
+다음을 사용하여 라이브러리를 설치합니다.
 
 ```bash npm2yarn
 npm install -S dotenv langchain @pinecone-database/pinecone
@@ -80,7 +81,7 @@ const vectorStore = await PineconeStore.fromExistingIndex(
   { pineconeIndex }
 );
 
-/* Search the vector DB independently with meta filters */
+/* meta filters로 vector DB를 독립적으로 검색 */
 const results = await vectorStore.similaritySearch("pinecone", 1, {
   foo: "bar",
 });
@@ -94,7 +95,7 @@ console.log(results);
 ]
 */
 
-/* Use as part of a chain (currently no metadata filters) */
+/* chain의 일부로 사용 (현재 metadata filters 없음) */
 const model = new OpenAI();
 const chain = VectorDBQAChain.fromLLM(model, vectorStore, {
   k: 1,

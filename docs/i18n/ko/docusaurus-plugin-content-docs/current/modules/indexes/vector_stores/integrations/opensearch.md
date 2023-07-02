@@ -4,21 +4,21 @@ sidebar_class_name: node-only
 
 # OpenSearch
 
-:::호환성 팁
-Node.js 환경에서만 동작합니다.
+:::tip Compatibility
+Node.js에서만 사용합니다.
 :::
 
-[OpenSearch](https://opensearch.org/)는 [Elasticsearch](https://www.elastic.co/elasticsearch/)의 파생된 버전으로, Elasticsearch API와 완벽하게 호환됩니다. 근사 이웃 탐색에 대한 지원은 [여기](https://opensearch.org/docs/latest/search-plugins/knn/approximate-knn/)에서 자세히 알아보세요.
+[OpenSearch](https://opensearch.org/)는 [Elasticsearch](https://www.elastic.co/elasticsearch/)의 포크(fork)한 오픈소스로, Elasticsearch API와 완벽하게 호환됩니다. 이를 이용하여 가장 가까운 근사 검색에 대한 자세한 내용은 [여기](https://opensearch.org/docs/latest/search-plugins/knn/approximate-knn/)를 참고하세요.
 
-Langchain.js는 [@opensearch-project/opensearch](https://opensearch.org/docs/latest/clients/javascript/index/)를 OpenSearch 벡터스토어의 클라이언트로 허용합니다.
+Langchain.js는 OpenSearch vectorstore를 사용하기 위한 클라이언트로 [@opensearch-project/opensearch](https://opensearch.org/docs/latest/clients/javascript/index/)를 허용합니다.
 
-## 준비
+## 설치
 
 ```bash npm2yarn
 npm install -S @opensearch-project/opensearch
 ```
 
-OpenSearch 인스턴스가 실행 중이어야 합니다. [공식 Docker 이미지](https://opensearch.org/docs/latest/opensearch/install/docker/)를 사용하여 시작할 수 있습니다. 또한 [여기](https://github.com/hwchase17/langchainjs/blob/main/examples/src/indexes/vector_stores/opensearch/docker-compose.yml)에서 docker-compose 예제 파일을 찾을 수도 있습니다.
+OpenSearch 인스턴스가 실행중인 상태여야 합니다. [공식 Docker 이미지](https://opensearch.org/docs/latest/opensearch/install/docker/)를 사용하여 시작할 수 있습니다. [여기](https://github.com/hwchase17/langchainjs/blob/main/examples/src/indexes/vector_stores/opensearch/docker-compose.yml)를 참고하세요.
 
 ## Document 인덱스
 
@@ -54,7 +54,7 @@ const docs = [
 
 await OpenSearchVectorStore.fromDocuments(docs, new OpenAIEmbeddings(), {
   client,
-  indexName: process.env.OPENSEARCH_INDEX, // Will default to `documents`
+  indexName: process.env.OPENSEARCH_INDEX, //기본 값은 `documents`입니다.
 });
 ```
 
@@ -75,7 +75,7 @@ const vectorStore = new OpenSearchVectorStore(new OpenAIEmbeddings(), {
   client,
 });
 
-/* Search the vector DB independently with meta filters */
+/* meta filters로 vector DB를 독립적으로 검색 */
 const results = await vectorStore.similaritySearch("hello world", 1);
 console.log(JSON.stringify(results, null, 2));
 /* [
@@ -87,7 +87,7 @@ console.log(JSON.stringify(results, null, 2));
     }
   ] */
 
-/* Use as part of a chain (currently no metadata filters) */
+/* chain의 일부로 사용 (현재 metadata filters 없음) */
 const model = new OpenAI();
 const chain = VectorDBQAChain.fromLLM(model, vectorStore, {
   k: 1,

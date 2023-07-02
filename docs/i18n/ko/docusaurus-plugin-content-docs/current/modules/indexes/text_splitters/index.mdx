@@ -6,15 +6,15 @@ sidebar_position: 2
 
 import DocCardList from "@theme/DocCardList";
 
-# 시작하기: Text Splitters
+# Text Splitters 시작하기
 
 :::info
 [Conceptual Guide](https://docs.langchain.com/docs/components/indexing/text-splitters)
 :::
 
-언어 모델에는 전달할 수 있는 텍스트의 양이 제한되어 있는 경우가 많습니다. 따라서 더 작은 청크로 분할해야 합니다. LangChain은 이를 위한 여러 유틸리티를 제공합니다.
+언어 모델은 우리가 API 를 통해 넘길수 있는 문자의 양을 주로 제한합니다. 그러므로, 우리는 이를 작은 청크로 나누는 것이 필요합니다. LangChain 은 이를 위한 몇가지 유틸리티를 제공합니다.
 
-Text Splitter를 사용하면 벡터 스토어 검색 결과를 개선하는 데 도움이 될 수가 있습니다. 예를 들어, 청크가 작을수록 쿼리와 일치할 가능성이 더 높을 수 있습니다. 다양한 청크 크기(및 청크 겹침)를 테스트하여 사용 케이스에 맞게 결과를 조정하는 것은 의미 있는 작업입니다.
+Text Splitter 를 사용하는 것은 또한 벡터 스토어 검색 결과를 향상시킬 수 있습니다. 예를 들어, 더 작은 청크는 쿼리와 일치할 가능성이 더 높을 수 있습니다. 다른 청크 크기 (및 청크 오버랩)를 테스트하는 것은 사용 사례에 맞게 결과를 맞춤화하는 데 도움이되는 유용한 연습입니다.
 
 ```typescript
 interface TextSplitter {
@@ -31,7 +31,7 @@ interface TextSplitter {
 }
 ```
 
-Text Splitter는 두 가지 메소드, `createDocuments`와 `splitDocuments`를 제공합니다. createDocuments는 원문 텍스트 문자열 목록을 받아 document 배열을 반환합니다. splitDocuments는 document 배열을 받아 document 배열을 반환합니다. 차이점은 `createDocuments`는 원문 텍스트 문자열을 청크로 분할하지만, `splitDocuments`는 문서를 청크로 분할합니다.
+Text Splitters 는 두가지 메소드를 노출합니다. `createDocuments` 와 `splitDocuments` 입니다. 전자는 원시 텍스트 문자열의 목록을 가져 와서 문서의 목록을 반환합니다. 후자는 문서의 목록을 가져 와서 문서의 목록을 반환합니다. 차이점은 `createDocuments` 는 원시 텍스트 문자열을 청크로 분할하고, `splitDocuments` 는 문서를 청크로 분할합니다.
 
 ## 모든 Text Splitters
 
@@ -39,7 +39,7 @@ Text Splitter는 두 가지 메소드, `createDocuments`와 `splitDocuments`를 
 
 ## 심화
 
-자신만의 사용자 정의 Text Splitter를 구현하려면 TextSplitter를 서브 클래스로 하고 단일 메소드 `splitText`만 구현하면 됩니다. 이 메소드는 문자열을 받아 문자열 목록을 반환합니다. 반환된 문자열은 청크로 사용됩니다.
+만약 당신만의 Text Splitter 를 구현하기를 원한다면, 당신은 TextSplitter 를 서브클래스로 만들고, `splitText` 라는 단일 메소드를 구현하면 됩니다. 이 메소드는 문자열을 가져와서 문자열의 목록을 반환합니다. 반환된 문자열은 청크로 사용됩니다.
 
 ```typescript
 abstract class TextSplitter {
