@@ -10,7 +10,7 @@ import DocCardList from "@theme/DocCardList";
 [Conceptual Guide](https://docs.langchain.com/docs/components/agents/agent)
 :::
 
-이 에이전트는 MRKL 과 같은 에이전트 프롬프트 체인을 감싼 stateless wrapper 입니다. 프롬프트 서식도구를 처리하며, 채팅 모델으로 부터오는 응답을 얻어 파싱합니다. 또한 사용자 입력을 받아들이고 취할 "동작"과 해당 "동작 입력"에 해당하는 응답을 반환합니다.
+이 에이전트는 MRKL 과 같은 에이전트 프롬프트 체인을 감싼 Stateless Wrapper 입니다. 프롬프트 서식도구를 처리하며, 채팅 모델으로 부터오는 응답을 얻어 파싱합니다. 또한 사용자 입력을 받아들이고 취할 "Action"과 해당 "Action Input"에 해당하는 응답을 반환합니다.
 
 ```typescript
 interface AgentStep {
@@ -34,7 +34,7 @@ class Agent {
 
 ## Which agent to choose?
 
-당신이 고를 수 있는 에이전트는 당신이 수행하고자 하는 작업의 종류에 따라 달라집니다. 여기 당신의 사용 사례에 맞는 에이전트를 고르는데 도움이 될만한 빠른 가이드가 있습니다.
+고를 수 있는 에이전트는 수행하고자 하는 작업의 종류에 따라 달라집니다. 여기 당신의 사용 사례에 맞는 에이전트를 고르는데 도움이 될만한 빠른 가이드가 있습니다.
 
 - 만약 텍스트 LLM 을 사용한다면, [MRKL agent for LLMs](./examples/llm_mrkl) 라고 불리는 `zero-shot-react-description` 을 사용해보세요.
 - 만약 채팅 모델을 사용한다면, [Conversational agent](./examples/conversational_agent) 라고 불리는 `chat-conversational-react-description` 를 사용해보세요.
