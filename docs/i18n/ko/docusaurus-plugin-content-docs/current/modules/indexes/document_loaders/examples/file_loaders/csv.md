@@ -1,6 +1,6 @@
 # CSV files
 
-이 예시는 CSV file에서 data를 로드하는 방법에 대해 전반적으로 살펴봅니다. 두 번째 인자는 CSV file에서 추출하고 싶은 `column` 명입니다. CSV file 안에 각 행은 하나의 document로 만들어질 것입니다. 추출하고 싶은 `column`이 명시되지 않았을 때, 각 행은 각각의 document로 만들어지며, document의 `pageContent` 안에 한 쌍의 key/value로 변환되어 새로운 줄로 입력됩니다. 추출하고 싶은 `column`을 명시했을 때, 명시된 열은 document의 `pageContent`로 사용되며, 각 행은 각각의 document로 만들어집니다.
+이 예시는 CSV file에서 data를 로드하는 방법에 대해 전반적으로 살펴봅니다. 두 번째 인자는 CSV file에서 추출하고 싶은 `column` 명입니다. CSV file 안에 각 행은 하나의 document로 만들어집니다. 추출하고 싶은 `column`이 명시되지 않았을 때, 각 행은 각각의 document로 만들어지며, document의 `pageContent` 안에 한 쌍의 key/value로 변환되어 새로운 줄로 입력됩니다. 추출하고 싶은 `column`을 명시했을 때, 명시된 열은 document의 `pageContent`로 사용되며, 각 행은 각각의 document로 만들어집니다.
 
 ## 준비
 
