@@ -5,13 +5,13 @@ sidebar_position: 5
 
 import DocCardList from "@theme/DocCardList";
 
-# Getting Started: Memory
+# 시작하기: Memory
 
 :::info
 [Conceptual Guide](https://docs.langchain.com/docs/components/memory)
 :::
 
-Memory is the concept of storing and retrieving data in the process of a conversation. There are two main methods, `loadMemoryVariables` and `saveContext`. The first method is used to retrieve data from memory (optionally using the current input values), and the second method is used to store data in memory.
+Memory는 대화 과정에서 데이터를 저장하고 검색하는 개념입니다. `loadMemoryVariables`와 `saveContext`의 두 가지 메인 메소드가 있습니다. 첫 번째 메소드는 memory에서 데이터를 검색하는 데 사용되며(선택적으로 현재 입력 값을 사용), 두 번째 메소드는 memory에 데이터를 저장하는 데 사용됩니다.
 
 ```typescript
 export type InputValues = Record<string, any>;
@@ -29,24 +29,24 @@ interface BaseMemory {
 ```
 
 :::note
-Do not share the same memory instance between two different chains, a memory instance represents the history of a single conversation
+서로 다른 두 chain 간에 동일한 memory 객체를 공유하지 마세요. memory 객체는 단일 대화의 기록을 나타냅니다.
 :::
 
 :::note
-If you deploy your LangChain app on a serverless environment do not store memory instances in a variable, as your hosting provider may have reset it by the next time the function is called.
+서버리스 환경에 LangChain 앱을 배포하는 경우 다음에 함수를 호출할 때 호스팅 제공업체가 memory 객체를 재설정했을 수 있으므로 변수에 memory 객체를 저장하지 마세요.
 :::
 
-## All Memory classes
+## 모든 Memory classes
 
 <DocCardList />
 
-## Advanced
+## 심화
 
-To implement your own memory class you have two options:
+고유한 memory 클래스를 구현하려면 두 가지 옵션이 있습니다:
 
-### Subclassing `BaseChatMemory`
+### `BaseChatMemory` 서브클래스화
 
-This is the easiest way to implement your own memory class. You can subclass `BaseChatMemory`, which takes care of `saveContext` by saving inputs and outputs as [Chat Messages](../schema/chat-messages.md), and implement only the `loadMemoryVariables` method. This method is responsible for returning the memory variables that are relevant for the current input values.
+`BaseChatMemory` 서브클래스화는 고유 memory 클래스를 구현하는 가장 쉬운 방법입니다. 입력과 출력을 [Chat Messages](../schema/chat-messages.md)로 저장하여 `saveContext`를 처리하는 `BaseChatMemory`를 서브클래스화하고, `loadMemoryVariables` 메소드만 구현하면 됩니다.`loadMemoryVariables` 메소드는 현재 입력 값과 관련된 메모리 변수를 반환하는 역할을 합니다.
 
 ```typescript
 abstract class BaseChatMemory extends BaseMemory {
@@ -56,9 +56,9 @@ abstract class BaseChatMemory extends BaseMemory {
 }
 ```
 
-### Subclassing `BaseMemory`
+### `BaseMemory` 서브클래스화
 
-If you want to implement a more custom memory class, you can subclass `BaseMemory` and implement both `loadMemoryVariables` and `saveContext` methods. The `saveContext` method is responsible for storing the input and output values in memory. The `loadMemoryVariables` method is responsible for returning the memory variables that are relevant for the current input values.
+더 맞춤화된 memory 클래스를 구현하려면 `BaseMemory`를 서브 클래스화하고 `loadMemoryVariables`와 `saveContext` 메소드를 모두 구현하면 됩니다. `saveContext` 메소드는 입력 및 출력 값을 memory에 저장하는 역할을 합니다. `loadMemoryVariables` 메소드는 현재 입력 값과 관련된 메모리 변수를 반환하는 역할을 합니다.
 
 ```typescript
 abstract class BaseMemory {
