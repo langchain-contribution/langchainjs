@@ -8,40 +8,43 @@ import Example from "@examples/agents/chat_convo_with_tracing.ts";
 
 # Conversational Agent
 
-This example covers how to create a conversational agent for a chat model. It will utilize chat specific prompts.
+이 예시는 채팅 모델을 위한 대화형 에이전트를 만드는 방법을 다룹니다. 채팅 특화 프롬프트를 사용할 것입니다.
 
 <CodeBlock language="typescript">{Example}</CodeBlock>
 
 ````
-Loaded agent.
-Entering new agent_executor chain...
+에이전트 불러옴.
+새로운 agent_executor 체인에 진입중...
 {
-    "action": "Final Answer",
-    "action_input": "Hello Bob! How can I assist you today?"
+    "action": "마지막 대답",
+    "action_input": "안녕 Bob! 오늘은 어떻게 도와드릴까요?"
 }
-Finished chain.
-Got output Hello Bob! How can I assist you today?
-Entering new agent_executor chain...
+체인 종료.
+출력 결과: 안녕 Bob! 오늘은 어떻게 도와드릴까요?
+새로운 agent_executor 체인에 진입중...
 {
-    "action": "Final Answer",
-    "action_input": "Your name is Bob."
+    "action": "마지막 대답",
+    "action_input": "너의 이름은 Bob 이야."
 }
-Finished chain.
-Got output Your name is Bob.
-Entering new agent_executor chain...
+체인 종료.
+출력결과: 너의 이름은 Bob 이야.
+새로운 agent_executor 체인에 진입중...
+
 ```json
 {
-    "action": "search",
-    "action_input": "weather in pomfret"
+    "action": "검색",
+    "action_input": "pomfret 의 날씨"
 }
 ```
-A steady rain early...then remaining cloudy with a few showers. High 48F. Winds WNW at 10 to 15 mph. Chance of rain 80%.
+
+장마가 일찍찾아왔고...그리고 몇몇 소나기가 남아있는 흐린 날씨. 48F의 높은 온도. 풍속은 10~15mph. 비 올 확률 80% 입니다.
+
 ```json
 {
-    "action": "Final Answer",
-    "action_input": "The weather in Pomfret is a steady rain early...then remaining cloudy with a few showers. High 48F. Winds WNW at 10 to 15 mph. Chance of rain 80%."
+    "action": "마지막 대답",
+    "action_input": "장마가 일찍찾아왔고...그리고 몇몇 소나기가 남아있는 흐린 날씨. 48F의 높은 온도. 풍속은 10~15mph. 비 올 확률 80% 입니다."
 }
 ```
-Finished chain.
-Got output The weather in Pomfret is a steady rain early...then remaining cloudy with a few showers. High 48F. Winds WNW at 10 to 15 mph. Chance of rain 80%.
+체인 종료.
+출력결과: 장마가 일찍찾아왔고...그리고 몇몇 소나기가 남아있는 흐린 날씨. 48F의 높은 온도. 풍속은 10~15mph. 비 올 확률 80% 입니다.
 ````
