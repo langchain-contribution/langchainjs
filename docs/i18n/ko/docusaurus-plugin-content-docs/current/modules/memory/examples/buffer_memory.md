@@ -1,6 +1,6 @@
 # Buffer Memory
 
-BufferMemory is the simplest type of memory - it just remembers previous conversational back and forths directly.
+BufferMemory는 가장 단순한 타입의 memory로, 이전 대화 내용을 바로 기억합니다.
 
 ```typescript
 import { OpenAI } from "langchain/llms/openai";
@@ -27,8 +27,8 @@ console.log({ res2 });
 {response: ' You said your name is Jim. Is there anything else you would like to talk about?'}
 ```
 
-You can also load messages into a `BufferMemory` instance by creating and passing in a `ChatHistory` object.
-This lets you easily pick up state from past conversations:
+또한 `ChatHistory` 객체를 생성하고 전달하여 `BufferMemory` 객체에 메시지를 로드할 수도 있습니다.
+메시지를 로드하면서 과거 대화에서 메시지를 쉽게 가져올 수 있습니다:
 
 ```typescript
 import { ChatMessageHistory } from "langchain/memory";

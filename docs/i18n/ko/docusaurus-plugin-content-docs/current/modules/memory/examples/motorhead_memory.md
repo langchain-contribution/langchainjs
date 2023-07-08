@@ -1,12 +1,12 @@
 # Motörhead Memory
 
-[Motörhead](https://github.com/getmetal/motorhead) is a memory server implemented in Rust. It automatically handles incremental summarization in the background and allows for stateless applications.
+[Motörhead](https://github.com/getmetal/motorhead)는 Rust로 구현된 memory 서버입니다. 백그라운드에서 점진적 요약을 자동으로 처리하고 stateless 애플리케이션을 지원합니다.
 
-## Setup
+## 준비
 
-See instructions at [Motörhead](https://github.com/getmetal/motorhead) for running the server locally.
+로컬에서 서버를 실행하려면 [Motörhead](https://github.com/getmetal/motorhead)의 설명을 참고하세요.
 
-## Usage
+## 사용 방법
 
 ```typescript
 import { ConversationChain } from "langchain/chains";

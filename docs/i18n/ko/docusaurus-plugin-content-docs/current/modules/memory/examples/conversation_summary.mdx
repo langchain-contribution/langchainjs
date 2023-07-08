@@ -7,15 +7,15 @@ import CodeBlock from "@theme/CodeBlock";
 
 # Conversation Summary Memory
 
-The Conversation Summary Memory summarizes the conversation as it happens and stores the current summary in memory. This memory can then be used to inject the summary of the conversation so far into a prompt/chain. This memory is most useful for longer conversations, where keeping the past message history in the prompt verbatim would take up too many tokens.
+Conversation Summary Memory는 대화가 진행되는 동안 대화를 요약하고 현재 요약을 메모리에 저장합니다. 그런 다음 이 메모리를 사용하여 지금까지의 대화 요약을 prompt/chain에 주입할 수 있습니다. 이 메모리는 과거 메시지 기록을 prompt에 그대로 보관하면 토큰을 너무 많이 차지할 수 있는 긴 대화에 가장 유용합니다.
 
-## Usage, with an LLM
+## LLM과 사용
 
 import TextExample from "@examples/memory/summary_llm.ts";
 
 <CodeBlock language="typescript">{TextExample}</CodeBlock>
 
-## Usage, with a Chat Model
+## Chat Model과 사용
 
 import ChatExample from "@examples/memory/summary_chat.ts";
 

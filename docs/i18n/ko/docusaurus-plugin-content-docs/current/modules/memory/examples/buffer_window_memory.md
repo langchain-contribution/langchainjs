@@ -1,6 +1,6 @@
 # Buffer Window Memory
 
-BufferWindowMemory keeps track of the back-and-forths in conversation, and then uses a window of size `k` to surface the last `k` back-and-forths to use as memory.
+BufferWindowMemory는 대화의 앞뒤를 추적한 다음 `k` 크기의 window를 사용하여 memory로 사용할 마지막 `k`의 앞뒤를 표시합니다.
 
 ```typescript
 import { OpenAI } from "langchain/llms/openai";
