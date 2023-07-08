@@ -5,23 +5,23 @@ sidebar_class_name: node-only
 
 # S3 File
 
-:::tip Compatibility
-Only available on Node.js.
+:::호환성 팁
+Node.js 환경에서만 동작합니다.
 :::
 
-This covers how to load document objects from an s3 file object.
+이 예시는 s3 파일 객체에서 document를 로드하는 방법에 대해 살펴봅니다.
 
-## Setup
+## 준비
 
-To run this index you'll need to have Unstructured already set up and ready to use at an available URL endpoint. It can also be configured to run locally.
+이 인덱스를 실행하려면 사용 가능한 URL 엔드포인트에서 Unstructured를 이미 설정하고 사용할 준비가 되어 있어야 합니다. 로컬에서 실행되도록 구성할 수도 있습니다.
 
-See the docs [here](https://js.langchain.com/docs/modules/indexes/document_loaders/examples/file_loaders/unstructured) for information on how to do that.
+[여기](https://js.langchain.com/docs/modules/indexes/document_loaders/examples/file_loaders/unstructured)에서 Unstructured를 설정하는 방법에 대해 확인할 수 있습니다.
 
-## Usage
+## 사용 방법
 
-Once Unstructured is configured, you can use the S3 loader to load files and then convert them into a Document.
+Unstructured를 설정하면, S3 loader를 사용하여 파일을 로드한 다음 Document로 변환할 수 있습니다.
 
-You can optionally provide a s3Config parameter to specify your bucket region, access key, and secret access key. If these are not provided, you will need to have them in your environment (e.g., by running `aws configure`).
+s3Config 파라미터를 사용하여 bucket region, access key, secret access key를 S3 loader로 넘길 수 있습니다. 만약 s3Config를 사용하지 않으면 환경에 이미 해당 값들을 가지고 있어야 합니다.(e.g., `aws configure`를 사용).
 
 import CodeBlock from "@theme/CodeBlock";
 import Example from "@examples/document_loaders/s3.ts";

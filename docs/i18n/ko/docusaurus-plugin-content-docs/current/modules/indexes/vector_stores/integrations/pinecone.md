@@ -15,7 +15,7 @@ Langchain.js는 Pinecone vectorstore를 사용하기 위한 클라이언트로 [
 npm install -S dotenv langchain @pinecone-database/pinecone
 ```
 
-## Index docs
+## Document 인덱스
 
 ```typescript
 import { PineconeClient } from "@pinecone-database/pinecone";
@@ -57,7 +57,7 @@ await PineconeStore.fromDocuments(docs, new OpenAIEmbeddings(), {
 });
 ```
 
-## Query docs
+## Document 쿼리
 
 ```typescript
 import { PineconeClient } from "@pinecone-database/pinecone";

@@ -4,7 +4,7 @@ hide_table_of_contents: true
 
 # Vector Store
 
-Once you've created a [Vector Store](../vector_stores/), the way to use it as a Retriever is very simple:
+[Vector Store](../vector_stores/)를 생성한 후 Retriever로 사용하는 방법은 매우 간단합니다.:
 
 ```typescript
 vectorStore = ...

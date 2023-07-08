@@ -10,7 +10,7 @@ sidebar_class_name: node-only
 Node.js에서만 사용 가능합니다.
 :::
 
-## Setup
+## 준비
 
 1. 로컬 컴퓨터에서 Milvus instance를 Docker로 실행 [docs](https://milvus.io/docs/v2.1.x/install_standalone-docker.md)
 2. Milvus Node.js SDK를 설치

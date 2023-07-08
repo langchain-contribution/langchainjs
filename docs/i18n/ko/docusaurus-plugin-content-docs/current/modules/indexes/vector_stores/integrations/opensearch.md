@@ -20,7 +20,7 @@ npm install -S @opensearch-project/opensearch
 
 OpenSearch 인스턴스가 실행중인 상태여야 합니다. [공식 Docker 이미지](https://opensearch.org/docs/latest/opensearch/install/docker/)를 사용하여 시작할 수 있습니다. [여기](https://github.com/hwchase17/langchainjs/blob/main/examples/src/indexes/vector_stores/opensearch/docker-compose.yml)를 참고하세요.
 
-## Index docs
+## Document 인덱스
 
 ```typescript
 import { Client } from "@opensearch-project/opensearch";
@@ -58,7 +58,7 @@ await OpenSearchVectorStore.fromDocuments(docs, new OpenAIEmbeddings(), {
 });
 ```
 
-## Query docs
+## Document 쿼리
 
 ```typescript
 import { Client } from "@opensearch-project/opensearch";

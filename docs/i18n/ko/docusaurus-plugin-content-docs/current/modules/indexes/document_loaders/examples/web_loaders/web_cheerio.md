@@ -6,19 +6,19 @@ hide_table_of_contents: true
 
 # Webpages, with Cheerio
 
-This example goes over how to load data from webpages using Cheerio. One document will be created for each webpage.
+이 예시에서는 Cheerio를 사용하여 웹페이지에서 데이터를 로드하는 방법에 대해 살펴봅니다. 각 웹페이지마다 하나의 document가 생성됩니다.
 
-Cheerio is a fast and lightweight library that allows you to parse and traverse HTML documents using a jQuery-like syntax. You can use Cheerio to extract data from web pages, without having to render them in a browser.
+Cheerio는 빠르고 가벼운 라이브러리로, jQuery와 유사한 구문을 사용하여 HTML 문서를 분석하고 탐색할 수 있습니다. 또한, 브라우저에서 렌더링할 필요 없이 Cheerio를 사용하여 웹 페이지에서 데이터를 추출할 수 있습니다.
 
-However, Cheerio does not simulate a web browser, so it cannot execute JavaScript code on the page. This means that it cannot extract data from dynamic web pages that require JavaScript to render. To do that, you can use the [PlaywrightWebBaseLoader](./web_playwright.md) or [PuppeteerWebBaseLoader](./web_puppeteer.md) instead.
+그러나, Cheerio는 웹 브라우저를 시뮬레이션하지 않아 페이지에서 자바스크립트 코드를 실행할 수 없습니다. 즉, 렌더링에 JavaScript가 필요한 동적 웹 페이지에서 데이터를 추출할 수 없습니다. 대신 [PlaywrightWebBaseLoader](./web_playwright.md) 또는 [PuppeteerWebBaseLoader](./web_puppeteer.md)를 사용할 수 있습니다.
 
-## Setup
+## 준비
 
 ```bash npm2yarn
 npm install cheerio
 ```
 
-## Usage
+## 사용 방법
 
 ```typescript
 import { CheerioWebBaseLoader } from "langchain/document_loaders/web/cheerio";
@@ -30,7 +30,7 @@ const loader = new CheerioWebBaseLoader(
 const docs = await loader.load();
 ```
 
-## Usage, with a custom selector
+## 사용자 지정 selector 사용 방법
 
 ```typescript
 import { CheerioWebBaseLoader } from "langchain/document_loaders/web/cheerio";

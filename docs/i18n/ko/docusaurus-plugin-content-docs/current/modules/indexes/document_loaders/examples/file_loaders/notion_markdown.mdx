@@ -4,13 +4,13 @@ hide_table_of_contents: true
 
 # Notion markdown export
 
-This example goes over how to load data from your Notion pages exported from the notion dashboard.
+이 예시는 notion 대시보드에서 가져온 Notion 페이지로부터 data를 가져오는 방법에 대해 살펴봅니다.
 
-First, export your notion pages as **Markdown & CSV** as per the offical explanation [here](https://www.notion.so/help/export-your-content). Make sure to select `include subpages` and `Create folders for subpages.`
+첫번째, notion 페이지들을 공식문서의 [여기](https://www.notion.so/help/export-your-content)를 참고하여 **Markdown & CSV**로 가져오세요. '하위 페이지 포함'과 '하위 페이지용 폴더 생성' 옵션을 선택해주세요.
 
-Then, unzip the downloaded file and move the unzipped folder into your repository. It should contain the markdown files of your pages.
+그리고, 다운받은 파일의 압축을 해제하고, 당신이 사용할 레포지토리에 압축을 해제한 폴더를 옮겨주세요. 이 폴더는 반드시 markdown 형식의 페이지들을 갖고 있어야 합니다.
 
-Once the folder is in your repository, simply run the example below:
+레포지토리에 폴더를 옮기고 나선, 아래의 예시를 실행하세요.
 
 import CodeBlock from "@theme/CodeBlock";
 import Example from "@examples/document_loaders/notion_markdown.ts";

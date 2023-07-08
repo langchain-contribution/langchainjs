@@ -7,23 +7,23 @@ sidebar_label: Playwright
 
 # Webpages, with Playwright
 
-:::tip Compatibility
-Only available on Node.js.
+:::호환성 팁
+Node.js 환경에서만 동작합니다.
 :::
 
-This example goes over how to load data from webpages using Playwright. One document will be created for each webpage.
+이 예시는 Playwright를 사용하여 웹페이지로부터 데이터를 로드하는 방법에 대해 살펴봅니다. 각 웹페이지마다 하나의 document가 생성됩니다.
 
-Playwright is a Node.js library that provides a high-level API for controlling multiple browser engines, including Chromium, Firefox, and WebKit. You can use Playwright to automate web page interactions, including extracting data from dynamic web pages that require JavaScript to render.
+Playwright는 Chromium, firefox, webkit 등 여러 브라우저 엔진을 제어하기 위한 고수준 API를 제공하는 Node.js 라이브러리입니다. Playwright를 사용하면 렌더링에 JavaScript가 필요한 동적 웹 페이지에서 데이터를 추출하는 등 웹 페이지 상호 작용을 자동화할 수 있습니다.
 
-If you want a lighterweight solution, and the webpages you want to load do not require JavaScript to render, you can use the [CheerioWebBaseLoader](./web_cheerio.md) instead.
+더 가벼운 솔루션을 원하고 로드하려는 웹페이지에 렌더링하는 데 자바스크립트가 필요하지 않은 경우, [CheerioWebBaseLoader](./web_cheerio.md)를 대신 사용할 수 있습니다.
 
-## Setup
+## 준비
 
 ```bash npm2yarn
 npm install playwright
 ```
 
-## Usage
+## 사용 방법
 
 ```typescript
 import { PlaywrightWebBaseLoader } from "langchain/document_loaders/web/playwright";
@@ -37,9 +37,9 @@ const loader = new PlaywrightWebBaseLoader("https://www.tabnews.com.br/");
 const docs = await loader.load();
 ```
 
-## Options
+## 옵션
 
-Here's an explanation of the parameters you can pass to the PlaywrightWebBaseLoader constructor using the PlaywrightWebBaseLoaderOptions interface:
+다음은 PlaywrightWebBaseLoaderOptions 인터페이스를 사용하여 PlaywrightWebBaseLoader 생성자에 전달할 수 있는 파라미터에 대한 설명입니다.:
 
 ```typescript
 type PlaywrightWebBaseLoaderOptions = {
@@ -49,15 +49,15 @@ type PlaywrightWebBaseLoaderOptions = {
 };
 ```
 
-1. `launchOptions`: an optional object that specifies additional options to pass to the playwright.chromium.launch() method. This can include options such as the headless flag to launch the browser in headless mode.
+1. `launchOptions`: playwright.chromium.launch() 메서드에 전달할 추가 옵션을 지정하는 선택 객체입니다. 여기에는 헤드리스 모드에서 브라우저를 실행하는 헤드리스 플래그와 같은 옵션이 포함될 수 있습니다.
 
-2. `gotoOptions`: an optional object that specifies additional options to pass to the page.goto() method. This can include options such as the timeout option to specify the maximum navigation time in milliseconds, or the waitUntil option to specify when to consider the navigation as successful.
+2. `gotoOptions`: page.goto() 메서드에 전달할 추가 옵션을 지정하는 선택 객체입니다. 여기에는 최대 탐색 시간(ms)을 지정하는 시간 초과 옵션이나 탐색이 성공한 것으로 간주할 시점을 지정하는 waitUntil 옵션과 같은 옵션이 포함될 수 있습니다.
 
-3. `evaluate`: an optional function that can be used to evaluate JavaScript code on the page using a custom evaluation function. This can be useful for extracting data from the page or interacting with page elements. The function should return a Promise that resolves to a string containing the result of the evaluation.
+3. `evaluate`: 사용자 정의 평가 함수를 사용하여 페이지에서 자바스크립트 코드를 평가하는 데 사용할 수 있는 선택적 함수입니다. 페이지에서 데이터를 추출하거나 페이지 요소와 상호 작용하는 데 사용할 수 있습니다. 이 함수는 평가 결과가 포함된 문자열을 담은 promise를 반환해야 합니다.
 
-By passing these options to the `PlaywrightWebBaseLoader` constructor, you can customize the behavior of the loader and use Playwright's powerful features to scrape and interact with web pages.
+위 옵션을 `PlaywrightWebBaseLoader` 생성자에 전달하면 로더의 동작을 맞춤 설정하고, Playwright의 강력한 기능을 사용하여 웹 페이지를 스크래핑하고 상호 작용할 수 있습니다.
 
-Here is a basic example to do it:
+다음은 이를 수행하는 기본 예시입니다.:
 
 ```typescript
 import { PlaywrightWebBaseLoader } from "langchain/document_loaders/web/playwright";

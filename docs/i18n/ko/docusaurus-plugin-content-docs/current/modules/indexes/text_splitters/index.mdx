@@ -33,11 +33,11 @@ interface TextSplitter {
 
 Text Splitters 는 두가지 메소드를 노출합니다. `createDocuments` 와 `splitDocuments` 입니다. 전자는 원시 텍스트 문자열의 목록을 가져 와서 문서의 목록을 반환합니다. 후자는 문서의 목록을 가져 와서 문서의 목록을 반환합니다. 차이점은 `createDocuments` 는 원시 텍스트 문자열을 청크로 분할하고, `splitDocuments` 는 문서를 청크로 분할합니다.
 
-## All Text Splitters
+## 모든 Text Splitters
 
 <DocCardList />
 
-## Advanced
+## 심화
 
 만약 당신만의 Text Splitter 를 구현하기를 원한다면, 당신은 TextSplitter 를 서브클래스로 만들고, `splitText` 라는 단일 메소드를 구현하면 됩니다. 이 메소드는 문자열을 가져와서 문자열의 목록을 반환합니다. 반환된 문자열은 청크로 사용됩니다.
 
