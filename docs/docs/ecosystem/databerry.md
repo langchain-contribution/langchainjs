@@ -1,16 +1,16 @@
 # Databerry
 
-This page covers how to use the [Databerry](https://databerry.ai) within LangChain.
+이 페이지는 LangChain 안에서 [DataBerry](https://databerry.ai) 를 어떻게 사용하는지를 다룹니다.
 
 ## What is Databerry?
 
-Databerry is an [open source](https://github.com/gmpetrov/databerry) document retrievial platform that helps to connect your personal data with Large Language Models.
+DataBerry 는 [오픈소스](https://github.com/gmpetrov/databerry) 문서 검색 플랫픔으로 LLM 에 개인적인 데이터를 쉽게 연결할 수 있도록 도와줍니다.
 
 ![Databerry](/img/DataberryDashboard.png)
 
 ## Quick start
 
-Retrieving documents stored in Databerry from LangChain is very easy!
+DataBerry 에 저장된 문서를 랭체인으로 찾는것은 매우 쉽습니다!
 
 ```typescript
 import { DataberryRetriever } from "langchain/retrievers/databerry";
