@@ -9,20 +9,20 @@ import SequentialChainExample from "@examples/chains/sequential_chain.ts";
 
 # Sequential Chain
 
-Sequential chains allow you to connect multiple chains and compose them into pipelines that execute some specific scenario.
+시퀀셜 체인을 사용하면 여러 개의 체인을 연결하여 특정 시나리오를 실행하는 파이프라인으로 구성할 수 있습니다.
 
 ## `SimpleSequentialChain`
 
-Let's start with the simplest possible case which is `SimpleSequentialChain`.
+가능한 가장 간단한 경우인 `SimpleSequentialChain`부터 시작하겠습니다.
 
-An `SimpleSequentialChain` is a chain that allows you to join multiple single-input/single-output chains into one chain.
+SimpleSequentialChain은 여러 개의 단일 입력/단일 출력 체인을 하나의 체인으로 결합할 수 있는 체인입니다.
 
-The example below shows a sample usecase. In the first step, given a title, a synopsis of a play is generated. In the second step, based on the generated synopsis, a review of the play is generated.
+아래 예시는 샘플 사용 사례입니다. 첫 번째 단계에서는 제목이 주어지면 연극의 시놉시스를 생성합니다. 두 번째 단계에서는 생성된 시놉시스를 기반으로 연극에 대한 리뷰가 생성됩니다.
 
 <CodeBlock language="typescript">{SimpleSequentialChainExample}</CodeBlock>
 
 ## `SequentialChain`
 
-More advanced scenario useful when you have multiple chains that have more than one input or ouput keys.
+입력 또는 출력 키가 두 개 이상인 여러 개의 체인이 있을 때 유용합니다.
 
 <CodeBlock language="typescript">{SequentialChainExample}</CodeBlock>

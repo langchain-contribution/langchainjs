@@ -8,17 +8,20 @@ import CodeBlock from "@theme/CodeBlock";
 
 # Document QA Chains
 
-LangChain provides chains used for processing unstructured text data: `StuffDocumentsChain`, `MapReduceDocumentsChain` and `RefineDocumentsChain`.
-These chains are the building blocks more complex chains for processing unstructured text data and receive both documents and a question as input. They then utilize the language model to provide an answer to the question based on the given documents.
+LangChain은 비정형 텍스트 데이터를 처리하는 데 사용되는 체인을 제공합니다. (`StuffDocumentsChain`, `MapReduceDocumentsChain`, `RefineDocumentsChain`)
 
-- `StuffDocumentsChain`: This chain is the simplest of the 3 chains and simply injects all documents passes in into the prompt. It then returns the answer to the question, using all documents as context. It is suitable for QA tasks over a small number of documents.
-- `MapReduceDocumentsChain`: This chain adds a preprocessing step to select relevant portions of each document until the total number of tokens is less than the maximum number of tokens allowed by the model. It then uses the transformed docs as context to answer the question. It is suitable for QA tasks over larger documents, and it runs the preprocessing step in parallel, which can reduce the running time.
-- `RefineDocumentsChain`: This chain iterates over the documents one by one to update a running answer, at each turn using the previous version of the answer and the next doc as context. It is suitable for QA tasks over a large number of documents.
+이러한 체인은 비정형 텍스트 데이터를 처리하기 위한 더 복잡한 체인의 기본 구성 요소이며 문서와 질문을 모두 입력으로 받습니다.
 
-## Usage, `StuffDocumentsChain` and `MapReduceDocumentsChain`
+그런 다음 언어 모델을 활용하여 주어진 문서를 기반으로 질문에 대한 답을 제공합니다.
+
+- `StuffDocumentsChain`: 이 체인은 세 가지 체인 중 가장 간단한 체인으로, 입력된 모든 문서를 프롬프트에 삽입하기만 하면 됩니다. 그런 다음 모든 문서를 컨텍스트로 사용하여 질문에 대한 답을 반환합니다. 적은 수의 문서에 대한 QA 작업에 적합합니다.
+- `MapReduceDocumentsChain`: 이 체인은 총 토큰 수가 모델에서 허용하는 최대 토큰 수보다 작아질 때까지 각 문서의 관련 부분을 선택하는 전처리 단계를 추가합니다. 그런 다음 변환된 문서를 컨텍스트로 사용하여 질문에 답변합니다. 큰 문서에 대한 QA 작업에 적합하며 전처리 단계를 병렬로 실행하여 실행 시간을 줄일 수 있습니다.
+- `RefineDocumentsChain`: 이 체인은 문서를 하나씩 반복하여 실행 중인 답변을 업데이트하며, 매번 이전 버전의 답변과 다음 문서를 컨텍스트로 사용합니다. 많은 수의 문서에 대한 QA 작업에 적합합니다.
+
+## 사용법, `StuffDocumentsChain` 과 `MapReduceDocumentsChain`
 
 <CodeBlock language="typescript">{QAExample}</CodeBlock>
 
-## Usage, `RefineDocumentsChain`
+## 사용법, `RefineDocumentsChain`
 
 <CodeBlock language="typescript">{RefineExample}</CodeBlock>

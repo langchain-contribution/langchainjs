@@ -4,16 +4,18 @@ import CodeBlock from "@theme/CodeBlock";
 
 # `RetrievalQAChain`
 
-The `RetrievalQAChain` is a chain that combines a `Retriever` and a QA chain (described above). It is used to retrieve documents from a `Retriever` and then use a `QA` chain to answer a question based on the retrieved documents.
+`RetrievalQAChain`은 위에서 설명한 `Retriever`와 QA 체인을 결합한 체인입니다.
 
-## Usage
+`Retriever`에서 문서를 검색한 다음 `QA` 체인을 사용하여 검색된 문서를 기반으로 질문에 답변하는 데 사용됩니다.
 
-In the below example, we are using a `VectorStore` as the `Retriever`. By default, the `StuffDocumentsChain` is used as the `QA` chain.
+## 사용법
+
+아래 예제에서는 `VectorStore`를 `Retriever`로 사용하고 있습니다. 기본적으로 `StuffDocumentsChain`이 `QA` 체인으로 사용됩니다.
 
 <CodeBlock language="typescript">{RetrievalQAExample}</CodeBlock>
 
-## Usage, with a custom `QA` chain
+## 사용자 정의 `QA` chain 사용법
 
-In the below example, we are using a `VectorStore` as the `Retriever` and a `RefineDocumentsChain` as the `QA` chain.
+아래 예제에서는 `VectorStore`를 `Retriever`로, `RefineDocumentsChain`을 `QA` 체인으로 사용하고 있습니다.
 
 <CodeBlock language="typescript">{RetrievalQAExampleCustom}</CodeBlock>
